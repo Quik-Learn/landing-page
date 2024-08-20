@@ -110,7 +110,7 @@ const NavBar = () => {
                       textTransform="capitalize"
                       fontFamily="heading"
                       _hover={{
-                        color: "#0065FF",
+                        color: "#D7E9FF",
                       }}
                     >
                       {link.title}

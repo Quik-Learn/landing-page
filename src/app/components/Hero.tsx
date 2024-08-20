@@ -13,7 +13,7 @@ import {
   Link as ChakraLink,
   IconButton,
 } from "@chakra-ui/react";
-import HeroImage from "../../assets/images/hero.svg";
+
 import { Image } from "@chakra-ui/next-js";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Button from "./ui/button";
@@ -27,11 +27,11 @@ const Hero = () => {
         md: "100vh",
         sm: "100vh",
       }}
-      pt={{
+      mt={{
         base: 150,
         sm: 130,
-        md: 140,
-        lg: 120,
+        md: 120,
+        lg: 110,
       }}
       position="relative"
       bg="#F9F9F9"
@@ -49,37 +49,31 @@ const Hero = () => {
           w="100%"
           justify="space-between"
           flexDir={{
-            base: "column",
-            sm: "column",
+            base: "column-reverse",
+            sm: "column-reverse",
             lg: "row",
           }}
-          py={2}
-          spacing={{ base: 6, lg: 0 }}
+          spacing={{ base: 6, lg: 10 }}
         >
           <VStack
             spacing={3}
             w={{ base: "100%", lg: "50%" }}
             alignItems={{ base: "center", lg: "flex-start" }}
           >
-            <Text
-              color="#1E1E1E"
-              fontSize={{
-                base: "30px",
-                sm: "50px",
-                lg: "70px",
+            <Image
+              src="images/hero2.svg"
+              alt="Hero Image"
+              width={100}
+              height={100}
+              alignSelf="center"
+              w={{
+                base: "100%",
+                sm: "100%",
+                lg: "90%",
               }}
-              fontWeight="700"
-              fontFamily="DM Sans"
-              textAlign={{ base: "center", lg: "left" }}
-            >
-              Unlock Your Child’s
-              <br />{" "}
-              <Text as="span" color="#FF8C00">
-                Full Potential
-              </Text>{" "}
-              with <br /> Expert Tutors!
-            </Text>
-
+              h="80%"
+              ml={{ base: 0, lg: -40 }}
+            />
             <Text
               color="#424242"
               fontSize={{
@@ -105,7 +99,7 @@ const Hero = () => {
           </VStack>
           <Stack w={{ base: "100%", lg: "50%" }}>
             <Image
-              src={HeroImage}
+              src="images/hero.svg"
               alt="Hero Image"
               width={100}
               height={100}
