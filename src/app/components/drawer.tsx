@@ -27,16 +27,20 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
       url: "/",
     },
     {
+      title: "Courses",
+      url: "/courses",
+    },
+    {
       title: "About Us",
       url: "/about-us",
     },
     {
-      title: "Marketplace",
-      url: "/#marketplace",
+      title: "pricing",
+      url: "/#pricing",
     },
     {
-      title: "FAQs",
-      url: "/#faq",
+      title: "Contact",
+      url: "/#contact",
     },
   ];
   return (
@@ -58,8 +62,8 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
         />
         <DrawerHeader>
           <Link href="/" onClick={onClose}>
-            <ChakraLink>
-              <Image src="/images/logo.svg" alt="Logo" height="auto" />
+            <ChakraLink width={{ base: "60px" }} height={{ base: "60px" }}>
+              <Image src="/images/quik-logo.svg" alt="Logo" height="auto" />
             </ChakraLink>
           </Link>
         </DrawerHeader>

@@ -35,21 +35,13 @@ function PriceWrapper({ children, bgColor }: PriceWrapperProps) {
       borderColor={bgColor}
       display="flex"
       flexDirection="column"
-      w={{ base: "90vw", md: "350px", lg: "438px" }}
+      w={{ base: "100%", md: "350px", lg: "408px" }}
     >
       {children}
     </Box>
   );
 }
 export default function Pricing() {
-  const borderColor = useColorModeValue("gray.200", "gray.500");
-  const basicBgColor = useColorModeValue("gray.100", "gray.700");
-  const standardBgColor = useColorModeValue("orange.300", "orange.700");
-  const premiumBgColor = useColorModeValue("gray.100", "gray.700");
-  const listBgColor = useColorModeValue("gray.50", "gray.700");
-  const popularLabelBgColor = useColorModeValue("blue.500", "blue.700");
-  const popularLabelTextColor = useColorModeValue("gray.900", "gray.300");
-
   return (
     <Box
       py={{ lg: 70 }}
@@ -121,7 +113,7 @@ export default function Pricing() {
                 >
                   <Text
                     fontWeight="700"
-                    fontSize="40px"
+                    fontSize={{ base: 24, sm: 28, md: 35, lg: 40 }}
                     my={3}
                     fontFamily="heading"
                   >
@@ -137,22 +129,26 @@ export default function Pricing() {
                     borderColor="#FBA333"
                   >
                     <Text
-                      fontSize="31px"
+                      fontSize={{ base: 18, sm: 22, md: 28, lg: 31 }}
                       fontWeight="600"
                       color="#0A52A8"
                       fontFamily="Inter"
                     >
                       {tier.price}
                     </Text>
-                    <Text fontSize="16px" color="black" fontFamily="heading">
+                    <Text
+                      fontSize={{ base: 14, sm: 14, md: 16, lg: 16 }}
+                      color="black"
+                      fontFamily="heading"
+                    >
                       {tier.period}
                     </Text>
                   </HStack>
                 </Box>
-                <VStack py={4} borderBottomRadius={"xl"}>
+                <VStack py={6} borderBottomRadius={"xl"}>
                   <Text
                     fontWeight="500"
-                    fontSize={16}
+                    fontSize={{ base: 14, sm: 14, md: 16, lg: 16 }}
                     textAlign="start"
                     fontFamily="heading"
                     display="flex"
@@ -161,7 +157,11 @@ export default function Pricing() {
                   </Text>
                   <List spacing={3} textAlign="start" px={12}>
                     {tier.features.map((feature, idx) => (
-                      <ListItem key={idx} fontFamily="heading">
+                      <ListItem
+                        key={idx}
+                        fontFamily="heading"
+                        fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
+                      >
                         <ListIcon
                           as={
                             feature.available
@@ -170,6 +170,7 @@ export default function Pricing() {
                           }
                           bg={feature.available ? "#FFD599" : "transparent"}
                           color="#000"
+                          fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
                         />
                         {feature.feature}
                       </ListItem>
@@ -178,6 +179,7 @@ export default function Pricing() {
                   <Box w="80%" pt={7}>
                     <Button
                       w="full"
+                      mb={4}
                       bg={tier.buttonColorScheme}
                       color={tier.buttonText}
                       variant={tier.buttonVariant || "solid"}

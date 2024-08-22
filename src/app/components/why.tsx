@@ -31,7 +31,6 @@ const Why = () => {
         lg: 50,
       }}
       position="relative"
-      bg="#FFFFFF"
       fontFamily="heading"
       padding={{ base: 5, md: 10, lg: 20 }}
       mb={20}

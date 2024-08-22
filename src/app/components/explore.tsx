@@ -35,13 +35,13 @@ const Feature = ({ title, image, id, color }: FeatureProps) => {
       borderBottomLeftRadius={10}
       fontFamily="heading"
       padding={4}
-      w={{ base: "90vw", sm: "45vw", md: "30vw", lg: 316 }}
+      w={{ base: "100%", sm: "45vw", md: "30vw", lg: 316 }}
       h={362}
     >
       <Image
         src={image}
         w={{
-          base: title === "Explore All Courses" ? 35 : "90vw",
+          base: title === "Explore All Courses" ? 35 : "100%",
 
           lg: title === "Explore All Courses" ? 35 : 282,
         }}
@@ -66,7 +66,7 @@ const Explore = () => {
         lg: 120,
       }}
       position="relative"
-      bg="#fff"
+      bg="#FEFDF9"
       padding={{ base: 5, md: 10, lg: 20 }}
     >
       <Heading

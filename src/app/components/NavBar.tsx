@@ -14,6 +14,7 @@ import { useState } from "react";
 import Logo from "../../assets/images/quik-logo.svg";
 import Button from "./ui/button";
 import Drawer from "./drawer";
+import { IoMenu } from "react-icons/io5";
 
 const NavBar = () => {
   const router = useRouter();
@@ -54,12 +55,11 @@ const NavBar = () => {
   return (
     <>
       <VStack
-        py={2}
-        position="fixed"
-        top={0}
-        left={0}
-        right={0}
-        bg="#F9F9F9"
+        // position="fixed"
+        // top={0}
+        // left={0}
+        // right={0}
+        // bg="#F9F9F9"
         zIndex={100}
         fontFamily="heading"
       >
@@ -70,11 +70,11 @@ const NavBar = () => {
             lg: "100%",
           }}
           maxWidth={{ xl: 1440 }}
-          paddingX={20}
+          paddingX={{ base: 5, md: 10, lg: 20 }}
         >
           <HStack justify="space-between">
             <Link href="/">
-              <ChakraLink>
+              <ChakraLink width={{ base: "60px" }} h={{ base: "60px" }}>
                 <Image src={Logo} alt="Logo" width={100} height={100} />
               </ChakraLink>
             </Link>
@@ -91,6 +91,7 @@ const NavBar = () => {
               bg="white"
               borderRadius={15}
               px={5}
+              boxShadow="5px 5px 18px rgba(0, 0, 0, 0.03)"
             >
               <HStack
                 spacing={10}
@@ -141,15 +142,8 @@ const NavBar = () => {
               <IconButton
                 aria-label="toggle navigation"
                 bg="primary"
-                color="white"
-                icon={
-                  <Image
-                    src="/images/biology.svg"
-                    width={50}
-                    height={50}
-                    alt="menu"
-                  />
-                }
+                color="#FBA333"
+                icon={<IoMenu size={30} />}
                 _hover={{
                   bg: "primary",
                 }}

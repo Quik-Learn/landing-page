@@ -98,7 +98,7 @@ export default function Faq() {
           borderRadius={32}
           padding={{ base: 3, lg: 12 }}
           width={{ base: "100%", lg: 672 }}
-          mt={{ base: 10, lg: 0 }}
+          mt={{ base: 0, lg: 0 }}
           height="fit-content"
         >
           <Container>
@@ -122,10 +122,13 @@ export default function Faq() {
                   {({ isExpanded }) => (
                     <>
                       <h2>
-                        <AccordionButton borderBottom={isExpanded ? 1 : 0}>
+                        <AccordionButton
+                          borderBottom={isExpanded ? 1 : 0}
+                          padding={{ base: 1, sm: 3, md: 6, lg: 12 }}
+                        >
                           <Box as="span" flex="1" textAlign="left">
                             <Text
-                              fontSize={18}
+                              fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
                               fontWeight={500}
                               color="#262626"
                             >
@@ -141,6 +144,7 @@ export default function Faq() {
                               _hover={{
                                 bg: "primary",
                               }}
+                              fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
                             />
                           ) : (
                             <IconButton
@@ -151,12 +155,16 @@ export default function Faq() {
                               _hover={{
                                 bg: "primary",
                               }}
+                              fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
                             />
                           )}
                         </AccordionButton>
                       </h2>
                       <AccordionPanel pb={4}>
-                        <Text color="#4C4C4D" fontSize={18}>
+                        <Text
+                          color="#4C4C4D"
+                          fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
+                        >
                           {item.content}
                         </Text>
                       </AccordionPanel>
