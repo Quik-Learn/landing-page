@@ -6,6 +6,7 @@ export type ButtonType = {
   iconPosition?: "left" | "right";
   size?: "sm" | "md" | "lg";
   variant?: "solid" | "outline" | "ghost";
+  alignSelf?: "center" | "flex-start" | "flex-end";
   isDisabled?: boolean;
   isLoading?: boolean;
   onClick?: () => void;

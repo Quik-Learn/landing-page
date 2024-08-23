@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 import { Image } from "@chakra-ui/next-js";
-import { AiOutlineArrowRight } from "react-icons/ai";
+import { CiMail } from "react-icons/ci";
 import Button from "./ui/button";
 
 const Hero = () => {
@@ -53,53 +53,67 @@ const Hero = () => {
             sm: "column-reverse",
             lg: "row",
           }}
+          position="relative"
           spacing={{ base: 6, lg: 10 }}
         >
+          {/* <Image
+            src="images/arr-1.svg"
+            alt="Hero Image"
+            position="absolute"
+            width={20}
+            height={20}
+            bottom={2}
+            left="40%"
+            display={{ base: "none", md: "block" }}
+          /> */}
+          <Image
+            src="images/Sparkle.svg"
+            alt="Hero Image"
+            position="absolute"
+            width={7}
+            height={7}
+            top={2}
+            left="20%"
+            display={{ base: "none", md: "block" }}
+          />
           <VStack
             spacing={3}
             w={{ base: "100%", lg: "50%" }}
             alignItems={{ base: "center", lg: "flex-start" }}
           >
-            <Image
-              src="images/hero2.svg"
-              alt="Hero Image"
-              width={100}
-              height={100}
-              alignSelf="center"
-              w={{
-                base: "100%",
-                sm: "100%",
-                lg: "90%",
-              }}
-              h="80%"
-              ml={{ base: 0, lg: -40 }}
-            />
+            <Heading
+              size="2xl"
+              fontWeight="semibold"
+              fontFamily="body"
+              color="#1D2026"
+              textAlign={{ base: "center", lg: "left" }}
+              my={5}
+            >
+              Connect with us
+            </Heading>
             <Text
-              color="#424242"
+              color="#4E5566"
               fontSize={{
                 base: "20px",
                 lg: "24px",
               }}
-              fontWeight="500"
               marginBottom={{ base: 10, lg: 4 }}
-              fontFamily="heading"
+              fontFamily="body"
               textAlign={{ base: "center", lg: "left" }}
             >
-              Personalized Learning for Every Child, Anytime, Anywhere.
+              Want to chat? We’d love to hear from you! Get in touch with our
+              Customer Success Team to inquire about
             </Text>
-
             <Button
-              color="white"
-              icon={<AiOutlineArrowRight />}
-              iconPosition="right"
-              bgGradient="linear(to-r, #0065FF, #181F79)"
-              text="Start Learning Today!"
-              width={{ base: "90vw", lg: "328px" }}
+              text="Copy Email"
+              bg="#FF8C00"
+              width={169}
+              icon={<CiMail color="white" />}
             />
           </VStack>
           <Stack w={{ base: "100%", lg: "50%" }}>
             <Image
-              src="images/hero.svg"
+              src="images/connect.svg"
               alt="Hero Image"
               width={100}
               height={100}

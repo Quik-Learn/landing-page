@@ -1,18 +1,22 @@
 import React from "react";
 import NavBar from "../components/NavBar";
-import Footerr from "../components/footer";
-import Hero from "../components/SingleHero";
-import Tutor from "../components/tutor";
 
-const HomePage = () => {
+import Pricing from "../components/pricing";
+
+import Faq from "../components/faq";
+import Footerr from "../components/footer";
+
+const PricePage = () => {
   return (
     <div className="bg-[#fff]">
       <NavBar />
-      <Hero />
-      <Tutor />
+
+      <Pricing />
+
+      <Faq />
       <Footerr />
     </div>
   );
 };
 
-export default HomePage;
+export default PricePage;

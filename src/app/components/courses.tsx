@@ -45,6 +45,7 @@ const CourseCard = ({
     boxShadow="md"
     overflow="hidden"
     bg="white"
+    mb={10}
     // boxShadow="5px 5px 18px rgba(0, 0, 0, 0.03)"
   >
     <Image src={imageSrc} alt={title} objectFit="cover" />
@@ -92,11 +93,10 @@ const CourseCard = ({
                 </HStack>
                 <HStack spacing={1}>
                   <Icon as={PiStudent} />
-                  <Tooltip hasArrow label="Phone number" fontSize="md">
-                    <Text fontSize="sm" color="#4D4C5C" fontWeight="semibold">
-                      {learners} Learners
-                    </Text>
-                  </Tooltip>
+
+                  <Text fontSize="sm" color="#4D4C5C" fontWeight="semibold">
+                    {learners} Learners
+                  </Text>
                 </HStack>
               </HStack>
               <Text fontSize="xs" color="#59595A">

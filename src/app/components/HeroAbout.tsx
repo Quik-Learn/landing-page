@@ -53,53 +53,61 @@ const Hero = () => {
             sm: "column-reverse",
             lg: "row",
           }}
+          position="relative"
           spacing={{ base: 6, lg: 10 }}
         >
+          <Image
+            src="images/arr-1.svg"
+            alt="Hero Image"
+            position="absolute"
+            width={20}
+            height={20}
+            bottom={2}
+            left="40%"
+            display={{ base: "none", md: "block" }}
+          />
+          <Image
+            src="images/Sparkle.svg"
+            alt="Hero Image"
+            position="absolute"
+            width={7}
+            height={7}
+            top={2}
+            left="20%"
+            display={{ base: "none", md: "block" }}
+          />
           <VStack
             spacing={3}
             w={{ base: "100%", lg: "50%" }}
             alignItems={{ base: "center", lg: "flex-start" }}
           >
-            <Image
-              src="images/hero2.svg"
-              alt="Hero Image"
-              width={100}
-              height={100}
-              alignSelf="center"
-              w={{
-                base: "100%",
-                sm: "100%",
-                lg: "90%",
-              }}
-              h="80%"
-              ml={{ base: 0, lg: -40 }}
-            />
+            <Heading
+              size="2xl"
+              fontWeight="semibold"
+              fontFamily="body"
+              color="#1D2026"
+              textAlign={{ base: "center", lg: "left" }}
+            >
+              We share knowledge with the world
+            </Heading>
             <Text
-              color="#424242"
+              color="#6E7485"
               fontSize={{
                 base: "20px",
                 lg: "24px",
               }}
-              fontWeight="500"
               marginBottom={{ base: 10, lg: 4 }}
-              fontFamily="heading"
+              fontFamily="body"
               textAlign={{ base: "center", lg: "left" }}
             >
-              Personalized Learning for Every Child, Anytime, Anywhere.
+              Interdum et malesuada fames ac ante ipsum primis in faucibus.
+              Praesent fermentum quam mauris. Fusce tempor et augue a aliquet.
+              Donec non ipsum non risus egestas tincidunt at vitae nulla.
             </Text>
-
-            <Button
-              color="white"
-              icon={<AiOutlineArrowRight />}
-              iconPosition="right"
-              bgGradient="linear(to-r, #0065FF, #181F79)"
-              text="Start Learning Today!"
-              width={{ base: "90vw", lg: "328px" }}
-            />
           </VStack>
           <Stack w={{ base: "100%", lg: "50%" }}>
             <Image
-              src="images/hero.svg"
+              src="images/hero-a.svg"
               alt="Hero Image"
               width={100}
               height={100}

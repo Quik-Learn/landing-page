@@ -5,7 +5,7 @@ const Button = (props: ButtonType) => {
   const {
     text: textProp,
     icon,
-    iconPosition,
+    iconPosition = "left",
     size = "lg",
     variant = "solid",
     isDisabled,
@@ -16,13 +16,14 @@ const Button = (props: ButtonType) => {
     color: text = variant === "solid" ? "white" : "#0065FF",
     bg = variant === "solid" ? "#0065FF" : "white",
     border = "#C6C6C6",
-    type = "submit",
+    type = "button",
     borderRadius = "4px",
     width = "100%",
     px,
     py,
     bgGradient,
     fontFamily = "body",
+    alignSelf,
   } = props;
 
   return (
@@ -33,6 +34,7 @@ const Button = (props: ButtonType) => {
       isLoading={isLoading}
       onClick={onClick}
       color={text}
+      alignSelf={alignSelf}
       bg={bg}
       bgGradient={bgGradient}
       leftIcon={icon && iconPosition === "left" && icon}

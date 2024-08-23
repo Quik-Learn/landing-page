@@ -36,11 +36,11 @@ const NavBar = () => {
     },
     {
       title: "pricing",
-      url: "/#pricing",
+      url: "/pricing",
     },
     {
       title: "Contact",
-      url: "/#contact",
+      url: "/contact",
     },
     {
       title: "Login",
