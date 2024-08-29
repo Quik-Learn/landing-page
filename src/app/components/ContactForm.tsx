@@ -26,8 +26,8 @@ function ContactForm() {
   return (
     <VStack
       py={{
-        base: 150,
-        sm: 130,
+        base: 50,
+        sm: 30,
         md: 20,
         lg: 50,
       }}
@@ -44,19 +44,20 @@ function ContactForm() {
         color="#000000"
         fontFamily="heading"
         fontWeight="600"
-        alignSelf="flex-start"
-        mb={3}
+        alignSelf={{ base: "center", lg: "flex-start" }}
+        mb={{ lg: 3 }}
       >
         Get in Touch with{" "}
         <Text as="span" color="#FFCE0F">
           Us!
         </Text>
       </Heading>
-      <HStack
+      <Stack
         spacing={2}
         width="full"
-        p={10}
-        mt={10}
+        paddingX={{ base: 5, md: 10, lg: 10 }}
+        mt={{ base: 5, lg: 10 }}
+        flexDirection={{ base: "column", lg: "row" }}
         justifyContent="space-around"
         alignItems="flex-start"
       >
@@ -68,12 +69,18 @@ function ContactForm() {
               <Input
                 placeholder="Enter First Name"
                 bg="#FCFCFD"
-                border="none"
+                borderWidth={1}
+                borderColor="#F1F1F3"
               />
             </FormControl>
             <FormControl>
               <FormLabel>Last Name</FormLabel>
-              <Input placeholder="Enter Last Name" bg="#FCFCFD" border="none" />
+              <Input
+                placeholder="Enter Last Name"
+                bg="#FCFCFD"
+                borderWidth={1}
+                borderColor="#F1F1F3"
+              />
             </FormControl>
           </SimpleGrid>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing="4" mt="6">
@@ -83,7 +90,8 @@ function ContactForm() {
                 type="email"
                 placeholder="Enter your Email"
                 bg="#FCFCFD"
-                border="none"
+                borderWidth={1}
+                borderColor="#F1F1F3"
               />
             </FormControl>
             <FormControl>
@@ -91,7 +99,8 @@ function ContactForm() {
               <Input
                 placeholder="Enter Phone Number"
                 bg="#FCFCFD"
-                border="none"
+                borderWidth={1}
+                borderColor="#F1F1F3"
               />
             </FormControl>
           </SimpleGrid>
@@ -100,7 +109,8 @@ function ContactForm() {
             <Input
               placeholder="Enter your Subject"
               bg="#FCFCFD"
-              border="none"
+              borderWidth={1}
+              borderColor="#F1F1F3"
             />
           </FormControl>
           <FormControl my="6">
@@ -110,26 +120,31 @@ function ContactForm() {
               placeholder="Enter your Message here..."
               bg="#FCFCFD"
               height="150px"
-              border="none"
+              borderWidth={1}
+              borderColor="#F1F1F3"
             />
           </FormControl>
-          <Button
-            bg="#0065FF"
-            width={164}
-            alignSelf="center"
-            text="Send Your Message"
-          />
+          <Stack align="center">
+            <Button
+              bg="#0065FF"
+              width={164}
+              alignSelf="center"
+              text="Send Your Message"
+            />
+          </Stack>
         </Box>
-        <Box w={{ base: "100%", lg: "40%" }}>
+        <Box w={{ base: "100%", lg: "40%" }} mt={{ base: 10, md: 0 }}>
           <Stack spacing="6" justify="center" align="center">
             <VStack
               direction="column"
               align="center"
               bg="#FCFCFD"
               borderRadius={6}
-              width={275}
+              width={{ base: 200, md: 275 }}
+              height={{ base: 100, md: 142 }}
               justify="center"
-              height={142}
+              borderWidth={1}
+              borderColor="#F1F1F3"
             >
               <Icon as={IoMdMail} boxSize="6" />
               <Text>support@quiklearn.com</Text>
@@ -140,8 +155,10 @@ function ContactForm() {
               justify="center"
               bg="#FCFCFD"
               borderRadius={6}
-              width={275}
-              height={142}
+              width={{ base: 200, md: 275 }}
+              height={{ base: 100, md: 142 }}
+              borderWidth={1}
+              borderColor="#F1F1F3"
             >
               <Icon as={MdLocalPhone} boxSize="6" />
               <Text>+91 00000 00000</Text>
@@ -152,8 +169,10 @@ function ContactForm() {
               align="center"
               bg="#FCFCFD"
               borderRadius={6}
-              width={275}
-              height={142}
+              width={{ base: 200, md: 275 }}
+              height={{ base: 100, md: 142 }}
+              borderWidth={1}
+              borderColor="#F1F1F3"
             >
               <Icon as={FaMapMarkerAlt} boxSize="6" />
               <Text>Manchester, UK</Text>
@@ -166,8 +185,10 @@ function ContactForm() {
               mt="4"
               bg="#FCFCFD"
               borderRadius={6}
-              width={275}
-              height={142}
+              width={{ base: 200, md: 275 }}
+              height={{ base: 100, md: 142 }}
+              borderWidth={1}
+              borderColor="#F1F1F3"
             >
               <HStack justify="center">
                 <Icon as={FaFacebook} boxSize="6" />
@@ -178,7 +199,7 @@ function ContactForm() {
             </Stack>
           </Stack>
         </Box>
-      </HStack>
+      </Stack>
     </VStack>
   );
 }

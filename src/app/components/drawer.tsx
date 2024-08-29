@@ -62,7 +62,7 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
         />
         <DrawerHeader>
           <Link href="/" onClick={onClose}>
-            <ChakraLink width={{ base: "60px" }} height={{ base: "60px" }}>
+            <ChakraLink width={{ base: "60px" }} height={{ base: "60px" }} >
               <Image src="/images/quik-logo.svg" alt="Logo" height="auto" />
             </ChakraLink>
           </Link>

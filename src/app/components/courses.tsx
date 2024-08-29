@@ -46,7 +46,7 @@ const CourseCard = ({
     overflow="hidden"
     bg="white"
     mb={10}
-    // boxShadow="5px 5px 18px rgba(0, 0, 0, 0.03)"
+
   >
     <Image src={imageSrc} alt={title} objectFit="cover" />
     <VStack p={4} align="start" gap={4}>

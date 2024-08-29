@@ -73,7 +73,7 @@ const Hero = () => {
             <Image src="/images/course-1.svg" alt="lll" objectFit="cover" />
             <VStack p={4} align="start" gap={4}>
               <Heading size="md" fontWeight="medium">
-                Mathematics - K2 to K5 level, (Advanced Mathematics)
+                Mathematics - K2 to K5 level,(Advanced Mathematics)
               </Heading>
 
               <HStack justify="space-between" w="100%">

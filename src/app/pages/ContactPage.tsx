@@ -16,7 +16,6 @@ const ContactPage = () => {
       <Hero />
       <ContactForm />
 
-      <Faq />
       <Footerr />
     </div>
   );

@@ -6,12 +6,13 @@ import {
   HStack,
   Link as ChakraLink,
   IconButton,
+  Image,
 } from "@chakra-ui/react";
-import { Image } from "@chakra-ui/next-js";
+
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-import Logo from "../../assets/images/quik-logo.svg";
+
 import Button from "./ui/button";
 import Drawer from "./drawer";
 import { IoMenu } from "react-icons/io5";
@@ -75,7 +76,12 @@ const NavBar = () => {
           <HStack justify="space-between">
             <Link href="/">
               <ChakraLink width={{ base: "60px" }} h={{ base: "60px" }}>
-                <Image src={Logo} alt="Logo" width={100} height={100} />
+                <Image
+                  src="/images/quik-logo.svg"
+                  alt="Logo"
+                  width={{ base: 50, lg: 100 }}
+                  height={{ base: 50, lg: 100 }}
+                />
               </ChakraLink>
             </Link>
 

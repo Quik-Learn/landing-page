@@ -80,8 +80,6 @@ const footerData = [
       { label: "Company", href: "#" },
       { label: "Achievements", href: "#" },
       { label: "Our Goals", href: "#" },
-      { label: "Privacy Policy", href: "#" },
-      { label: "Status", href: "#" },
     ],
   },
   {
@@ -114,16 +112,22 @@ export default function Footerr() {
   const year = new Date().getFullYear();
   return (
     <Box bg="black" color="white">
-      <Container as={Stack} maxW={"6xl"} py={10}>
+      <Container as={Stack} maxW={"6xl"} py={6}>
         <SimpleGrid
-          templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 2fr" }}
+          templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr" }}
           spacing={8}
+          justifyContent="space-between"
         >
-          <Stack spacing={6}>
-            <Box>
+          <Stack spacing={{ base: 3, lg: 4 }}>
+            <Box mt={6}>
               <Link href="/">
                 <ChakraLink>
-                  <Image src={Logo} alt="Logo" width={100} height={100} />
+                  <Image
+                    src="/images/white-logo.svg"
+                    alt="Logo"
+                    width={214}
+                    height={53}
+                  />
                 </ChakraLink>
               </Link>
             </Box>
@@ -140,7 +144,12 @@ export default function Footerr() {
           </Stack>
 
           {footerData.slice(0, 2).map((section, index) => (
-            <Stack key={index} align={"flex-start"}>
+            <Stack
+              key={index}
+              align={"flex-start"}
+              pt={{ lg: 6 }}
+              spacing={{ base: 3, lg: 4 }}
+            >
               <ListHeader>{section.header}</ListHeader>
               {section.links?.map((link, linkIndex) => (
                 <Box key={linkIndex} as="a" href={link.href}>
@@ -150,7 +159,11 @@ export default function Footerr() {
             </Stack>
           ))}
 
-          <Stack align={"flex-start"}>
+          <Stack
+            align={"flex-start"}
+            pt={{ lg: 4 }}
+            spacing={{ base: 3, lg: 4 }}
+          >
             <ListHeader>{footerData[2].header}</ListHeader>
             <Stack direction={"row"} spacing={6}>
               {footerData[2].socialLinks?.map((socialLink, socialIndex) => (
@@ -165,7 +178,12 @@ export default function Footerr() {
             </Stack>
           </Stack>
         </SimpleGrid>
-        <Stack borderTopWidth={2} borderColor="white" py={10} mt={10}>
+        <Stack
+          borderTopWidth={2}
+          borderColor="white"
+          py={{ base: 10, md: 6 }}
+          mt={6}
+        >
           <Text fontSize={"sm"} textAlign="center">
             © {year} example. All rights reserved
           </Text>

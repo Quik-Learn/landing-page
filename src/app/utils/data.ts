@@ -56,7 +56,7 @@ export const pricingData: PricingTier[] = [
   {
     title: "Basic Plan",
     price: "£10",
-    period: "/month",
+    period: "/ month",
     features: [
       { feature: "Access to selected free courses.", available: true },
       { feature: "Limited course materials.", available: true },
@@ -74,7 +74,7 @@ export const pricingData: PricingTier[] = [
   {
     title: "Standard Plan",
     price: "£20",
-    period: "/month",
+    period: "/ month",
     features: [
       { feature: "Access to selected free courses.", available: true },
       { feature: "Limited course materials.", available: true },
@@ -93,7 +93,7 @@ export const pricingData: PricingTier[] = [
   {
     title: "Premium Plan",
     price: "£50",
-    period: "/month",
+    period: "/ month",
     features: [
       { feature: "Access to selected free courses.", available: true },
       { feature: "Limited course materials.", available: true },

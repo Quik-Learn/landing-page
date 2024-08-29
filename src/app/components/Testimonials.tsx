@@ -177,7 +177,8 @@ export default function CaptionCarousel() {
       <Stack
         position="relative"
         maxWidth={{ xl: 1440 }}
-        height={{ base: "60vh", sm: "70vh", md: "60vh", lg: "60vh" }}
+        height={{ base: "60vh", sm: "70vh", md: "60vh", lg: "65vh" }}
+        pt={10}
       >
         <Carousel
           swipeable={false}
@@ -195,29 +196,47 @@ export default function CaptionCarousel() {
           transitionDuration={500}
         >
           {cards.map((card, index) => (
-            <Box as="div" key={index} padding={0} marginLeft={{ md: 10 }}>
+            <Box as="div" key={index} padding={0} marginRight={{ md: 10 }}>
               <Stack
                 spacing={6}
-                bg="#fff"
+                bg="white"
                 borderRadius={19}
-                position="relative"
                 padding={12}
                 mt={10}
+                position="relative"
               >
                 <Image
                   src={card.image}
                   alt="avi"
                   w="50px"
                   h="50px"
-                  borderRadius={50}
+                  borderRadius="full"
                   position="absolute"
-                  top="-25px"
-                  left="-50%"
-                  translateX="50%"
-                  translateY="50%"
+                  top="-50px"
+                  left="50%"
+                  transform="translate(-50%, 50%)"
                   bg="#D9D9D9"
                 />
-
+                <Image
+                  src="/images/top.svg"
+                  alt="top"
+                  w="50px"
+                  h="50px"
+                  borderRadius="full"
+                  position="absolute"
+                  top="-25px"
+                  left="0px"
+                />
+                <Image
+                  src="/images/bottom.svg"
+                  alt="bottom"
+                  w="50px"
+                  h="50px"
+                  borderRadius="full"
+                  position="absolute"
+                  right="0px"
+                  bottom="-25px"
+                />
                 <Text
                   fontSize={{ base: "12px", md: "17px", lg: "17px" }}
                   color="#ACACAC"

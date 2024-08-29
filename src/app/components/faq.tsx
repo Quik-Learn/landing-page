@@ -90,6 +90,7 @@ export default function Faq() {
           display={{ base: "none", md: "block" }}
           src="/images/faq-girl.svg"
           alt="girl"
+          mt={8}
         />
       </VStack>
       <VStack justifyContent="center">
@@ -124,7 +125,7 @@ export default function Faq() {
                       <h2>
                         <AccordionButton
                           borderBottom={isExpanded ? 1 : 0}
-                          padding={{ base: 1, sm: 3, md: 6, lg: 12 }}
+                          padding={{ base: 1, sm: 3, md: 5, lg: 5 }}
                         >
                           <Box as="span" flex="1" textAlign="left">
                             <Text
