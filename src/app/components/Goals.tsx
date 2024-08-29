@@ -148,7 +148,7 @@ const Goals = () => {
               <Text color="#FF9500" as="span">
                 Together,
               </Text>{" "}
-              let's shape the future of digital <br /> innovation
+              let&apos;s shape the future of digital <br /> innovation
             </Heading>
             <Text
               mt={2}
