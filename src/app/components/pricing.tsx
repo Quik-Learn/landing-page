@@ -64,8 +64,8 @@ export default function Pricing() {
           Our Pricing
         </Heading>
         <Text color="black" textAlign="center">
-          Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget
-          elit id imperdiet et. Cras eu sit dignissim lorem nibh et.
+          Transparent pricing for quality education. Choose the plan that suits
+          your needs and start your academic journey.
         </Text>
       </VStack>
       {/* <Stack

@@ -22,32 +22,32 @@ import {
 import Button from "./ui/button";
 const goal = [
   {
-    name: "Provide Practical Skills",
+    name: "Personalized Educational Experience",
     img: "/images/one.svg",
 
     description:
-      "We focus on delivering practical skills that are relevant to the current industry demands. Our courses are designed to equip learners with the knowledge and tools needed to excel in their chosen field.",
+      "By tailoring support, providing convenient scheduling, and offering supplementary resources, Quik Learn enhances the educational journey, making learning more effective and personalized for each student.",
   },
   {
-    name: "Foster Creative Problem-Solving",
+    name: "Flexible Learning Options",
     img: "/images/two.svg",
 
     description:
-      "We focus on delivering practical skills that are relevant to the current industry demands. Our courses are designed to equip learners with the knowledge and tools needed to excel in their chosen field.",
+      "Quik Learn aims to offer diverse tutoring formats—online, in-person, and center-based—adapting to different learning styles and schedules, ensuring every student can learn in their preferred environment.",
   },
   {
-    name: "Promote Collaboration and Community",
+    name: "High-Quality Instruction and Support",
     img: "/images/three.svg",
 
     description:
-      "We focus on delivering practical skills that are relevant to the current industry demands. Our courses are designed to equip learners with the knowledge and tools needed to excel in their chosen field.",
+      "Quik Learn is committed to excellence by employing qualified tutors and fostering a safe, supportive learning environment. Their focus on personalized attention ensures students achieve their academic best.",
   },
   {
-    name: "Stay Ahead of the Curve",
+    name: "Diverse User Needs",
     img: "/images/four.svg",
 
     description:
-      "We focus on delivering practical skills that are relevant to the current industry demands. Our courses are designed to equip learners with the knowledge and tools needed to excel in their chosen field.",
+      "Quik Learn’s subscription plans—basic, standard, and premium—cater to varied tutoring needs and preferences, ensuring every learner receives the right level of support and resources suited to their goals.",
   },
 ];
 const Goal = ({ item }: any) => {
