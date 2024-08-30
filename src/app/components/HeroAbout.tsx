@@ -100,9 +100,9 @@ const Hero = () => {
               fontFamily="body"
               textAlign={{ base: "center", lg: "left" }}
             >
-              Interdum et malesuada fames ac ante ipsum primis in faucibus.
-              Praesent fermentum quam mauris. Fusce tempor et augue a aliquet.
-              Donec non ipsum non risus egestas tincidunt at vitae nulla.
+              We empower learners globally by sharing expert knowledge,
+              fostering growth, and inspiring success through personalized,
+              accessible, and engaging educational experiences.
             </Text>
           </VStack>
           <Stack w={{ base: "100%", lg: "50%" }}>

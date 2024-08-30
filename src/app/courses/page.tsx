@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Courses from "../pages/Courses";
 
 export const metadata: Metadata = {
-  title: "Verify Email",
+  title: "Courses",
 };
 
 export default Courses;
