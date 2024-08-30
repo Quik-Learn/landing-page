@@ -77,10 +77,10 @@ export default function CaptionCarousel() {
   };
   const cards = [
     {
-      title: "John Ronaldo",
-      text: "“From parents thrilled with their child's growth to students achieving their academic milestones,”",
+      title: "James Seams",
+      text: "“Wasn’t expecting much when I registered, but I am pleasantly surprised with the improvements my child has made.”",
       image: "/images/comment.svg",
-      remark: "Good Teacher",
+      remark: "Parent",
       rating: 4,
     },
     {
@@ -196,7 +196,15 @@ export default function CaptionCarousel() {
           transitionDuration={500}
         >
           {cards.map((card, index) => (
-            <Box as="div" key={index} padding={0} marginRight={{ md: 10 }}>
+            <Box
+              as="div"
+              display="flex"
+              flexDir="column"
+              key={index}
+              padding={0}
+              marginRight={{ md: 10 }}
+              alignSelf="center"
+            >
               <Stack
                 spacing={6}
                 bg="white"

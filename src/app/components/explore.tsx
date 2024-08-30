@@ -86,8 +86,9 @@ const Explore = () => {
         </Text>
       </Heading>
       <Text color="black" textAlign="center" fontFamily="heading" mb={20}>
-        Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit
-        id imperdiet et. Cras eu sit dignissim lorem
+        Explore our wide range of subjects tailored to help every student excel.
+        From Math, Science and Languages, our expert tutors are here to guide
+        your every step to success.
       </Text>
       <Box>
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={10}>

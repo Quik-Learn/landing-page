@@ -105,29 +105,54 @@ const Hero = () => {
             p={{ base: 10, lg: 7 }}
           >
             <Heading size="xl" fontWeight="bold" mb={10}>
-              What you will learn!
+              What this course covers!
             </Heading>
             <Text fontSize="lg" color="#59595A" mb={10}>
-              Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam
-              eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac
-              cum eget habitasse in velit fringilla feugiat senectus in. Lorem
-              ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit
-              id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget
-              habitasse in velit fringilla feugiat senectus in.
+              Build a strong math foundation with this course. You will learn
+              counting, place value, and number patterns; learn to add and
+              subtract within 20; and explore basic multiplication, division,
+              and fractions. Additionally, you will measure length, mass, and
+              capacity, uncover the characteristics of 2D and 3D shapes, and
+              explore patterns in an enjoyable, practical manner.
             </Text>
-            <HStack spacing={3} flexDir={{ base: "column", md: "row" }}>
-              <Text fontSize="lg" color="#59595A">
-                <Icon as={LuDot} color="green.500" />
-                Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam
-                eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et.
-                Ac cum eget habitasse in velit fringilla feugiat senectus in.
-              </Text>
-              <Text fontSize="lg" color="#59595A">
-                <Icon as={LuDot} color="green.500" />
-                Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam
-                eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et.
-                Ac cum eget habitasse in velit fringilla feugiat senectus in.
-              </Text>
+            <HStack>
+              <List
+                spacing={3}
+                flexDir={{ base: "column", md: "row" }}
+                flexWrap="wrap"
+              >
+                <ListItem fontSize="lg" color="#59595A">
+                  <Icon as={LuDot} color="green.500" />
+                  Counting, place value, number patterns, odd/even.
+                </ListItem>
+                <ListItem fontSize="lg" color="#59595A">
+                  <Icon as={LuDot} color="green.500" />
+                  Add/subtract within 20 using number lines, practical methods.
+                </ListItem>
+                <ListItem fontSize="lg" color="#59595A">
+                  <Icon as={LuDot} color="green.500" />
+                  Intro to multiplication, division with arrays and repeated
+                  addition.
+                </ListItem>
+              </List>
+              <List
+                spacing={3}
+                flexDir={{ base: "column", md: "row" }}
+                flexWrap="wrap"
+              >
+                <ListItem fontSize="lg" color="#59595A">
+                  <Icon as={LuDot} color="green.500" />
+                  Understanding fractions using models and practical activities.
+                </ListItem>
+                <ListItem fontSize="lg" color="#59595A">
+                  <Icon as={LuDot} color="green.500" />
+                  Measure length, mass, capacity using correct units.
+                </ListItem>
+                <ListItem fontSize="lg" color="#59595A">
+                  <Icon as={LuDot} color="green.500" />
+                  Recognize 2D/3D shapes, explore properties and patterns.
+                </ListItem>
+              </List>
             </HStack>
           </Box>
         </HStack>

@@ -40,15 +40,8 @@ const CourseCard = ({
   learners,
   router,
 }: any) => (
-  <Box
-    borderRadius="md"
-    boxShadow="md"
-    overflow="hidden"
-    bg="white"
-    mb={10}
-
-  >
-    <Image src={imageSrc} alt={title} objectFit="cover" />
+  <Box borderRadius="md" boxShadow="md" overflow="hidden" bg="white" mb={10}>
+    <Image src={imageSrc} alt={title} w="100%" h={320} objectFit="cover" />
     <VStack p={4} align="start" gap={4}>
       <Heading size="md" fontWeight="medium">
         {title}
@@ -162,8 +155,8 @@ const CoursesCover = () => {
         color="#000000"
         fontFamily="heading"
         fontWeight="600"
-        textAlign="left"
-        alignSelf="flex-start"
+        textAlign={{ base: "center", md: "left" }}
+        alignSelf={{ base: "center", md: "flex-start" }}
       >
         All "
         <Text as="span" color="#0A52A8">
@@ -173,18 +166,23 @@ const CoursesCover = () => {
       </Heading>
       <Text
         color="#59595A"
-        textAlign="left"
+        textAlign={{ base: "center", md: "left" }}
         fontSize={{ lg: "16px" }}
         fontFamily="heading"
         mb={10}
-        alignSelf="flex-start"
+        alignSelf={{ base: "center", lg: "flex-start" }}
       >
-        Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit
-        id imperdiet et. Cras eu sit dignissim lorem nibh et. Ac cum eget
-        habitasse in velit fringilla feugiat senectus in.
+        Master Math with our comprehensive courses - covering everything from
+        basic Numeracy, to Arithmetic to advanced Calculus.
       </Text>
       <Box width="full">
-        <Grid templateColumns="repeat(auto-fill, minmax(380px, 1fr))" gap={4}>
+        <Grid
+          templateColumns={{
+            base: "90vw",
+            lg: "repeat(auto-fill, minmax(380px, 1fr))",
+          }}
+          gap={4}
+        >
           {coursesArray.map((course, index) => (
             <GridItem key={index}>
               <CourseCard

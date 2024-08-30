@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import {
@@ -68,9 +69,8 @@ const Why = () => {
             mt={5}
             mb={{ lg: 10 }}
           >
-            Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget
-            elit id imperdiet et. Cras <br /> eu sit dignissim lorem nibh et. Ac
-            cum eget habitasse in velit fringilla feugiat senectus in.
+            Experts tutors, personalized learning, and proven results - discover
+            why students and parents trust us for academic success.
           </Text>
         </VStack>
         <HStack
@@ -126,9 +126,10 @@ const Why = () => {
               mt={5}
               mb={10}
             >
-              From state-of-the-art facilities to innovative teaching
-              methodologies, we strive to empower students with the knowledge,
-              skills, and values they need to thrive in an ever-evolving world.
+              We offer flexible tutoring schedules to accommodate the busy lives
+              of our students and their families. Whether it's after school, on
+              weekends, or during holidays, we strive to provide tutoring
+              sessions at times that are most convenient for you.
             </Text>
           </VStack>
         </HStack>
@@ -167,36 +168,36 @@ const Why = () => {
               mt={5}
               mb={10}
             >
-              From state-of-the-art facilities to innovative teachingar
-              methodologies, we strive to empower students with the knowledge,
-              skills, and values.
+              Experience an interactive learning environment where personalised
+              guidance meets dynamic resources, ensuring every student achieves
+              their full potential.
             </Text>
             <HStack
               spacing={10}
               justifyContent="space-around"
               fontFamily="heading"
             >
-              <Stack>
+              <Stack align="center">
                 <Text
                   color="#FFCE0F"
                   fontSize={{ base: 35, md: 57 }}
                   fontWeight={700}
                   fontFamily="heading"
                 >
-                  57k+
+                  0
                 </Text>
                 <Text fontSize={{ base: 10, md: 18 }} fontWeight={700}>
                   Happy Clients
                 </Text>
               </Stack>
-              <Stack>
+              <Stack align="center">
                 <Text
                   color="#0065FF"
                   fontSize={{ base: 35, md: 57 }}
                   fontWeight={700}
                   fontFamily="heading"
                 >
-                  11k+
+                  0
                 </Text>
                 <Text fontSize={{ base: 12, md: 18 }} fontWeight={700}>
                   Reviews
