@@ -20,6 +20,9 @@ import {
   List,
   ListItem,
   ListIcon,
+  Stack,
+  Input,
+  Select,
 } from "@chakra-ui/react";
 import { LuDot } from "react-icons/lu";
 import { FeatureProps } from "../types";
@@ -133,7 +136,7 @@ const CourseCard = ({
   </Box>
 );
 
-const CoursesCover = () => {
+const CoursesCover = ({ category }: any) => {
   const router = useRouter();
   return (
     <VStack
@@ -146,35 +149,46 @@ const CoursesCover = () => {
       position="relative"
       paddingX={{ base: 5, md: 10, lg: 20 }}
     >
-      <Heading
-        fontSize={{
-          base: 25,
-          sm: 25,
-          md: "51px",
-        }}
-        color="#000000"
-        fontFamily="heading"
-        fontWeight="600"
-        textAlign={{ base: "center", md: "left" }}
-        alignSelf={{ base: "center", md: "flex-start" }}
-      >
-        All "
-        <Text as="span" color="#0A52A8">
-          Mathematics
-        </Text>
-        " Courses
-      </Heading>
-      <Text
-        color="#59595A"
-        textAlign={{ base: "center", md: "left" }}
-        fontSize={{ lg: "16px" }}
-        fontFamily="heading"
-        mb={10}
-        alignSelf={{ base: "center", lg: "flex-start" }}
-      >
-        Master Math with our comprehensive courses - covering everything from
-        basic Numeracy, to Arithmetic to advanced Calculus.
-      </Text>
+      {!category?.length ? (
+        <Stack>
+          <Heading
+            fontSize={{
+              base: 25,
+              sm: 25,
+              md: "51px",
+            }}
+            color="#000000"
+            fontFamily="heading"
+            fontWeight="600"
+            textAlign={{ base: "center", md: "center" }}
+            alignSelf={{ base: "center", md: "center" }}
+          >
+            All Available Courses
+          </Heading>
+          <Text
+            color="#59595A"
+            textAlign={{ base: "center", md: "left" }}
+            fontSize={{ lg: "16px" }}
+            fontFamily="heading"
+            mb={10}
+            alignSelf={{ base: "center", lg: "center" }}
+            w={{ md: "50%" }}
+          >
+            Master Math with our comprehensive courses - covering everything
+            from basic Numeracy, to Arithmetic to advanced Calculus.
+          </Text>
+        </Stack>
+      ) : null}
+      <SimpleGrid width="full" columns={{ base: 1, md: 4 }} spacing={4} mb={10}>
+        <Input placeholder="I want to learn..." />
+        <Select placeholder="I'm available">
+          <option value="anytime">Anytime</option>
+        </Select>
+        <Select placeholder="Sort by: Our top pick">
+          <option value="top-pick">Our top pick</option>
+        </Select>
+        <Input placeholder="Search by name or keyword" />
+      </SimpleGrid>
       <Box width="full">
         <Grid
           templateColumns={{

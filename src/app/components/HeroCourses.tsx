@@ -17,8 +17,10 @@ import {
 import { Image } from "@chakra-ui/next-js";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Button from "./ui/button";
+import { service } from "../utils/data";
 
-const HeroCourses = () => {
+const HeroCourses = ({ category }: any) => {
+  const course = service?.find((item) => item.title === category);
   return (
     <VStack
       h={{
@@ -31,8 +33,6 @@ const HeroCourses = () => {
       // bg="#F9F9F9"
 
       fontFamily="heading"
-      pt={2}
-      paddingX={{ base: 5, md: 10, lg: 20 }}
     >
       <Container
         maxW={{
@@ -43,6 +43,8 @@ const HeroCourses = () => {
       >
         <HStack
           w="100%"
+          pt={2}
+          paddingX={{ base: 5, md: 10, lg: 20 }}
           justify="space-between"
           flexDir={{
             base: "column-reverse",
@@ -50,26 +52,44 @@ const HeroCourses = () => {
             lg: "row",
           }}
           spacing={{ base: 6, lg: 10 }}
+          bg={category?.length ? course?.bg : "transparent"}
         >
           <VStack
             spacing={3}
             w={{ base: "100%", lg: "50%" }}
             alignItems={{ base: "center", lg: "flex-start" }}
           >
-            <Image
-              src="images/hero-c-1.svg"
-              alt="Hero Image"
-              width={100}
-              height={100}
-              ml={{ base: 0, lg: -19.9 }}
-              alignSelf="center"
-              w={{
-                base: "100%",
-                sm: "100%",
-                lg: "90%",
-              }}
-              h="80%"
-            />
+            {!category?.length ? (
+              <Image
+                src="images/hero-c-1.svg"
+                alt="Hero Image"
+                width={100}
+                height={100}
+                ml={{ base: 0, lg: -19.9 }}
+                alignSelf="center"
+                w={{
+                  base: "100%",
+                  sm: "100%",
+                  lg: "90%",
+                }}
+                h="80%"
+              />
+            ) : (
+              <Heading
+                fontSize={{
+                  base: 25,
+                  sm: 25,
+                  md: 51,
+                }}
+                color="#000000"
+                fontFamily="heading"
+                fontWeight="600"
+                textAlign="center"
+              >
+                <Text color="#0A52A8">{category}</Text>
+                Courses
+              </Heading>
+            )}
             <Text
               color="#424242"
               fontSize={{
@@ -81,26 +101,31 @@ const HeroCourses = () => {
               fontFamily="heading"
               textAlign={{ base: "center", lg: "left" }}
             >
-              Looking for an online tutor? QuikLearn is the leading online
-              learning platform
+              {!category?.length
+                ? " Looking for an online tutor? QuikLearn is the leading online learning platform "
+                : "Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem nibh et."}
             </Text>
-            <Stack direction={"row"} width="100%" height="48px">
-              <Input
-                placeholder={"Search here"}
-                bg="white"
-                borderWidth={1}
-                borderColor="#DCDCE5"
-                _focus={{
-                  bg: "whiteAlpha.300",
-                }}
-                height="100%"
-              />
-              <Button bg="#0065FF" color="white" text="Search" width={130} />
-            </Stack>
+            {!category?.length ? (
+              <Stack direction={"row"} width="100%" height="48px">
+                <Input
+                  placeholder={"Search here"}
+                  bg="white"
+                  borderWidth={1}
+                  borderColor="#DCDCE5"
+                  _focus={{
+                    bg: "whiteAlpha.300",
+                  }}
+                  height="100%"
+                />
+                <Button bg="#0065FF" color="white" text="Search" width={130} />
+              </Stack>
+            ) : null}
           </VStack>
           <Stack w={{ base: "100%", lg: "50%" }}>
             <Image
-              src="images/hero-c-2.svg"
+              src={
+                category.length ? "images/physics.svg" : "images/hero-c-2.svg"
+              }
               alt="Hero Image"
               width={100}
               height={100}

@@ -63,7 +63,7 @@ export default function Pricing() {
         >
           Our Pricing
         </Heading>
-        <Text color="black" textAlign="center">
+        <Text color="black" textAlign="center" w={{ md: "50%" }}>
           Transparent pricing for quality education. Choose the plan that suits
           your needs and start your academic journey.
         </Text>

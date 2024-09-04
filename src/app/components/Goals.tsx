@@ -22,38 +22,30 @@ import {
 import Button from "./ui/button";
 const goal = [
   {
-    name: "Personalized Educational Experience",
+    name: "Provide Practical Skills",
     img: "/images/one.svg",
+    image: "/images/child.svg",
 
     description:
-      "By tailoring support, providing convenient scheduling, and offering supplementary resources, Quik Learn enhances the educational journey, making learning more effective and personalized for each student.",
+      "We focus on delivering practical skills that are relevant to the current industry demands. Our courses are designed to equip learners with the knowledge and tools needed to excel in their chosen field..",
   },
   {
-    name: "Flexible Learning Options",
+    name: "Promote Collaboration and Community",
     img: "/images/two.svg",
+    image: "/images/children.svg",
 
     description:
-      "Quik Learn aims to offer diverse tutoring formats—online, in-person, and center-based—adapting to different learning styles and schedules, ensuring every student can learn in their preferred environment.",
-  },
-  {
-    name: "High-Quality Instruction and Support",
-    img: "/images/three.svg",
-
-    description:
-      "Quik Learn is committed to excellence by employing qualified tutors and fostering a safe, supportive learning environment. Their focus on personalized attention ensures students achieve their academic best.",
-  },
-  {
-    name: "Diverse User Needs",
-    img: "/images/four.svg",
-
-    description:
-      "Quik Learn’s subscription plans—basic, standard, and premium—cater to varied tutoring needs and preferences, ensuring every learner receives the right level of support and resources suited to their goals.",
+      "We believe in the power of collaboration and peer learning. Our platform fosters a supportive and inclusive community where ",
   },
 ];
 const Goal = ({ item }: any) => {
   return (
-    <Box borderRadius="10px" overflow="hidden" p={10} bg="white" boxShadow="sm">
-      <VStack width="full" alignItems="flex-start">
+    <HStack flexDirection={{ base: "column", md: "row" }}>
+      <VStack
+        width="full"
+        alignItems="flex-start"
+        w={{ base: "100%", md: "50%" }}
+      >
         <IconButton
           aria-label="toggle navigation"
           bg="#FFF9F0"
@@ -79,7 +71,13 @@ const Goal = ({ item }: any) => {
           {item.description}
         </Text>
       </VStack>
-    </Box>
+      <Image
+        w={{ base: "100%", md: "50%" }}
+        borderRadius={10}
+        src={item.image}
+        alt="Tutor"
+      />
+    </HStack>
   );
 };
 const Goals = () => {
@@ -104,14 +102,16 @@ const Goals = () => {
         color="#000000"
         fontFamily="heading"
         fontWeight="600"
-        alignSelf="flex-start"
+        alignSelf="center"
+        textAlign={"center"}
         mb={3}
       >
         Our Goals
       </Heading>
       <Text
         color="59595A"
-        alignSelf="flex-start"
+        alignSelf="center"
+        textAlign={"center"}
         fontFamily="heading"
         mb={10}
         fontSize={{ base: "18px", lg: "24px" }}
@@ -121,14 +121,110 @@ const Goals = () => {
       </Text>
 
       <SimpleGrid
-        columns={{ base: 1, md: 2 }}
+        columns={{ base: 1, md: 1 }}
         spacing={6}
         alignSelf="flex-start"
         mt={10}
       >
-        {goal.map((item, index) => (
+        {/* {goal.map((item, index) => (
           <Goal item={item} key={index} />
-        ))}
+        ))} */}
+        <HStack flexDirection={{ base: "column", md: "row" }}>
+          <VStack
+            width="full"
+            alignItems="flex-start"
+            w={{ base: "100%", md: "50%" }}
+          >
+            <IconButton
+              aria-label="toggle navigation"
+              bg="#FFF9F0"
+              w={7}
+              h={7}
+              color="#FF9500"
+              icon={
+                <Image
+                  borderRadius={10}
+                  src={goal[0]?.img}
+                  alt="Tutor"
+                  h={19}
+                  w={28}
+                />
+              }
+              _hover={{
+                bg: "primary",
+              }}
+            />
+
+            <Heading
+              fontSize={{ base: "28px", lg: "36px" }}
+              color="#262626"
+              fontWeight="medium"
+            >
+              {goal[0]?.name}
+            </Heading>
+            <Text
+              mt={2}
+              fontSize={{ base: "18px", lg: "24px" }}
+              color="#59595A"
+            >
+              {goal[0]?.description}
+            </Text>
+          </VStack>
+          <Image
+            w={{ base: "100%", md: "50%" }}
+            borderRadius={10}
+            src={goal[0]?.image}
+            alt="Tutor"
+          />
+        </HStack>
+        <HStack flexDirection={{ base: "column", md: "row-reverse" }}>
+          <VStack
+            width="full"
+            alignItems="flex-start"
+            w={{ base: "100%", md: "50%" }}
+          >
+            <IconButton
+              aria-label="toggle navigation"
+              bg="#FFF9F0"
+              w={7}
+              h={7}
+              color="#FF9500"
+              icon={
+                <Image
+                  borderRadius={10}
+                  src={goal[1]?.img}
+                  alt="Tutor"
+                  h={19}
+                  w={28}
+                />
+              }
+              _hover={{
+                bg: "primary",
+              }}
+            />
+
+            <Heading
+              fontSize={{ base: "28px", lg: "36px" }}
+              color="#262626"
+              fontWeight="medium"
+            >
+              {goal[1].name}
+            </Heading>
+            <Text
+              mt={2}
+              fontSize={{ base: "18px", lg: "24px" }}
+              color="#59595A"
+            >
+              {goal[1].description}
+            </Text>
+          </VStack>
+          <Image
+            w={{ base: "100%", md: "50%" }}
+            borderRadius={10}
+            src={goal[1].image}
+            alt="Tutor"
+          />
+        </HStack>
       </SimpleGrid>
       <Box
         borderRadius="10px"

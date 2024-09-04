@@ -1,55 +1,30 @@
+import { BiGitCompare } from "react-icons/bi";
 import { PricingTier } from "../types";
 
 const ICON_PATH = "../";
 
 export const service = [
   {
-    id: 1,
-    title: "Mathematics",
-    color: "#004CC6",
-    image: `/images/math.svg`,
-  },
-  {
     id: 2,
     title: "Physics",
-    color: "#303C6E",
+    color: "#FF8C00",
+    bg: "#FFF6EB",
     image: `/images/physics.svg`,
   },
-  {
-    id: 3,
-    title: "Chemistry",
-    color: "#061638",
-    image: `/images/chemistry.svg`,
-  },
-  {
-    id: 4,
-    title: "Information Tech",
-    color: "#A16FDD",
-    image: `/images/tech.svg`,
-  },
-  {
-    id: 5,
-    title: "Geography",
-    color: "#13455E",
-    image: `/images/geo.svg`,
-  },
-  {
-    id: 6,
-    title: "English",
-    color: "#6280D6",
-    image: `/images/english.svg`,
-  },
+
   {
     id: 7,
     title: "Biology",
-    color: "#3C501B",
+    color: "#FF9ED2",
+    bg: "#FFF7FB",
     image: `/images/biology.svg`,
   },
   {
-    id: 8,
-    title: "Explore All Courses",
-    color: "#004CC6",
-    image: `/images/all.svg`,
+    id: 1,
+    title: "Mathematics",
+    color: "#1F89DB",
+    bg: "#F4FAFF",
+    image: `/images/math.svg`,
   },
 ];
 export const pricingData: PricingTier[] = [

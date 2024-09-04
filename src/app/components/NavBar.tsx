@@ -36,7 +36,7 @@ const NavBar = () => {
       url: "/about-us",
     },
     {
-      title: "pricing",
+      title: "Resources",
       url: "/pricing",
     },
     {

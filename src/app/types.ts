@@ -34,6 +34,9 @@ export type FeatureProps = {
   id: number;
   image: any;
   color: string;
+  bg: string;
+  desc: string;
+  router: any;
 };
 export type PricingTier = {
   title: string;

@@ -104,12 +104,12 @@ const Hero = () => {
               Want to chat? We’d love to hear from you! Get in touch with our
               Customer Success Team to inquire about
             </Text>
-            <Button
+            {/* <Button
               text="Copy Email"
               bg="#FF8C00"
               width={169}
               icon={<CiMail color="white" />}
-            />
+            /> */}
           </VStack>
           <Stack w={{ base: "100%", lg: "50%" }}>
             <Image

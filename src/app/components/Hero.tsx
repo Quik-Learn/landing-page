@@ -13,7 +13,7 @@ import {
   Link as ChakraLink,
   IconButton,
 } from "@chakra-ui/react";
-
+import { FaArrowRightLong } from "react-icons/fa6";
 import { Image } from "@chakra-ui/next-js";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Button from "./ui/button";
@@ -72,7 +72,7 @@ const Hero = () => {
                 lg: "90%",
               }}
               h="80%"
-              ml={{ base: 0, lg: -40 }}
+              ml={{ base: 0, lg: -20 }}
             />
             <Text
               color="#424242"
@@ -80,26 +80,38 @@ const Hero = () => {
                 base: "20px",
                 lg: "24px",
               }}
-              fontWeight="500"
+              fontWeight="400"
+              marginBottom={{ base: 0, lg: 0 }}
+              fontFamily="heading"
+              textAlign={{ base: "center", lg: "left" }}
+            >
+              Personalized Learning for Every Child,
+            </Text>
+            <Text
+              color="#424242"
+              fontSize={{
+                base: "20px",
+                lg: "24px",
+              }}
+              fontWeight="400"
               marginBottom={{ base: 10, lg: 4 }}
               fontFamily="heading"
               textAlign={{ base: "center", lg: "left" }}
             >
-              Personalized Learning for Every Child, Anytime, Anywhere.
+              Anytime, Anywhere.
             </Text>
-
             <Button
               color="white"
-              icon={<AiOutlineArrowRight />}
+              icon={<FaArrowRightLong />}
               iconPosition="right"
-              bgGradient="linear(to-r, #0065FF, #181F79)"
+              bg="#052F61"
               text="Start Learning Today!"
               width={{ base: "90vw", lg: "328px" }}
             />
           </VStack>
           <Stack w={{ base: "100%", lg: "50%" }}>
             <Image
-              src="images/hero.svg"
+              src="/images/herohero.png"
               alt="Hero Image"
               width={100}
               height={100}
