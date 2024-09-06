@@ -111,7 +111,7 @@ const Hero = () => {
           </VStack>
           <Stack w={{ base: "100%", lg: "50%" }}>
             <Image
-              src="/images/herohero.png"
+              src="/images/hero.svg"
               alt="Hero Image"
               width={100}
               height={100}

@@ -7,6 +7,7 @@ export type ButtonType = {
   size?: "sm" | "md" | "lg";
   variant?: "solid" | "outline" | "ghost";
   alignSelf?: "center" | "flex-start" | "flex-end";
+  borderColor?: string;
   isDisabled?: boolean;
   isLoading?: boolean;
   onClick?: () => void;

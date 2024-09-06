@@ -5,15 +5,17 @@ import Pricing from "../components/pricing";
 
 import Faq from "../components/faq";
 import Footerr from "../components/footer";
+import Hero from "../components/HeroResourse";
+import Resource from "../components/Resource";
 
 const PricePage = () => {
   return (
     <div className="bg-[#fff]">
       <NavBar />
 
-      <Pricing />
+      <Hero />
 
-      <Faq />
+      <Resource />
       <Footerr />
     </div>
   );

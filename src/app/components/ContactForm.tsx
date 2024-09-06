@@ -47,10 +47,7 @@ function ContactForm() {
         alignSelf={{ base: "center", lg: "flex-start" }}
         mb={{ lg: 3 }}
       >
-        Get in Touch with{" "}
-        <Text as="span" color="#FFCE0F">
-          Us!
-        </Text>
+        Get in Touch!
       </Heading>
       <Stack
         spacing={2}
