@@ -151,7 +151,7 @@ export default function CaptionCarousel() {
     <Box
       py={{ lg: 40 }}
       fontFamily="heading"
-      bg="#F9F9F9"
+      bg="#FFF1F8"
       padding={{ base: 10, lg: 20 }}
     >
       <VStack spacing={2} textAlign="center" pt={5} pb={20}>

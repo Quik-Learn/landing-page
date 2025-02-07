@@ -13,6 +13,7 @@ const Button = (props: ButtonType) => {
     onClick,
     fontSize = "16px",
     fontWeight = 700,
+    borderColor,
     color: text = variant === "solid" ? "white" : "#0065FF",
     bg = variant === "solid" ? "#0065FF" : "white",
     border = "#C6C6C6",

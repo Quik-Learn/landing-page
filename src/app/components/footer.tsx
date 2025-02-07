@@ -122,12 +122,14 @@ export default function Footerr() {
             <Box mt={6}>
               <Link href="/">
                 <ChakraLink>
-                  <Image
-                    src="/images/white-logo.svg"
-                    alt="Logo"
-                    width={214}
-                    height={53}
-                  />
+                  <Stack bg="white" w={190} h={190}>
+                    <Image
+                      src="/images/quik-logo.svg"
+                      alt="Logo"
+                      width={184}
+                      height={53}
+                    />
+                  </Stack>
                 </ChakraLink>
               </Link>
             </Box>

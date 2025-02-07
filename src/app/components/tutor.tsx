@@ -143,15 +143,13 @@ const TutorCard = () => {
           >
             <Stack maxW="380px">
               <Text fontSize="md" fontWeight="semibold" color="#121117">
-                Accent Reduction with American English Neutral Accent /
-                Pronunciation and Enunciation / Conversation / Motivational
-                Support Coach
+                Bio: Experienced Math Tutor
               </Text>
-              <Link href="/more">
+              {/* <Link href="/more">
                 <ChakraLink fontSize="md" fontWeight="semibold" color="#121117">
                   Read More
                 </ChakraLink>
-              </Link>
+              </Link> */}
             </Stack>
             <Button
               bg="#FFD700"
@@ -170,7 +168,7 @@ const tutors = Array(6).fill({
   activeStudents: 46,
   lessons: 894,
   language: "English (Native)",
-  description: "Accent Reduction with American English Neutral Accent",
+  description: "Bio: Experienced Math Tutor",
   reviews: 14,
   lessonTime: "50-min lesson",
   image: "/path-to-image.jpg",
