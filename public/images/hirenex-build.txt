@@ -1,0 +1,77 @@
+2024-09-03T20:44:56.550486951Z [34m╭────────────[34m[30m[44m git repo clone [0m[0m[34m───────────╼[0m
+2024-09-03T20:44:56.551052261Z [34m│[0m [34m › fetching app source code[0m
+2024-09-03T20:44:56.551056852Z [34m│[0m => Selecting branch "main"
+2024-09-03T20:45:10.946931280Z [34m│[0m => Checking out commit "215eef26945c8bbb9e79be32c6fbfba910287cd0"
+2024-09-03T20:45:11.476907342Z [34m│[0m 
+2024-09-03T20:45:11.478582862Z [34m│[0m [32m ✔ cloned repo to [35m/workspace[0m[0m
+2024-09-03T20:45:11.494704222Z [34m╰────────────────────────────────────────╼[0m
+2024-09-03T20:45:11.494720976Z 
+2024-09-03T20:45:11.596033005Z [34m › configuring custom build command to be run at the end of the build:[0m
+2024-09-03T20:45:11.598453408Z    [34m│[0m yarn build
+2024-09-03T20:45:11.598471207Z 
+2024-09-03T20:45:11.699975148Z [34m╭────────────[34m[30m[44m buildpack detection [0m[0m[34m───────────╼[0m
+2024-09-03T20:45:11.714599206Z [34m│[0m [34m › using Ubuntu 22.04 stack[0m
+2024-09-03T20:45:12.113495004Z [34m│[0m Detected the following buildpacks suitable to build your app:
+2024-09-03T20:45:12.113523038Z [34m│[0m 
+2024-09-03T20:45:12.113527350Z [34m│[0m    heroku/nodejs-engine   v0.5.3  
+2024-09-03T20:45:12.113530352Z [34m│[0m    digitalocean/node      v0.4.0  (Node.js)
+2024-09-03T20:45:12.113532355Z [34m│[0m    digitalocean/procfile  v0.0.4  (Procfile)
+2024-09-03T20:45:12.113534311Z [34m│[0m    digitalocean/custom    v0.1.2  (Custom Build Command)
+2024-09-03T20:45:12.113536870Z [34m│[0m 
+2024-09-03T20:45:12.113539691Z [34m│[0m For documentation on the buildpacks used to build your app, please see:
+2024-09-03T20:45:12.113542961Z [34m│[0m 
+2024-09-03T20:45:12.113546190Z [34m│[0m    Node.js  v0.4.0  https://do.co/apps-buildpack-node
+2024-09-03T20:45:12.116454727Z [34m╰─────────────────────────────────────────────╼[0m
+2024-09-03T20:45:12.116475027Z 
+2024-09-03T20:45:12.119130150Z [34m╭────────────[34m[30m[44m build caching [0m[0m[34m───────────╼[0m
+2024-09-03T20:45:12.121711997Z [34m│[0m [34m › checking for cache from a previous build[0m
+2024-09-03T20:45:12.959666782Z [34m│[0m Layer cache not found
+2024-09-03T20:45:13.271540551Z [34m│[0m Layer cache not found
+2024-09-03T20:45:13.335180011Z [34m╰───────────────────────────────────────╼[0m
+2024-09-03T20:45:13.335201802Z 
+2024-09-03T20:45:13.338451158Z [34m╭────────────[34m[30m[44m app build [0m[0m[34m───────────╼[0m
+2024-09-03T20:45:13.367331945Z [34m│[0m ---> Node.js Buildpack
+2024-09-03T20:45:13.368578277Z [34m│[0m ---> Installing toolbox
+2024-09-03T20:45:13.369935420Z [34m│[0m ---> - jq
+2024-09-03T20:45:14.211086007Z [34m│[0m ---> - yj
+2024-09-03T20:45:14.863462891Z [34m│[0m ---> Getting Node version
+2024-09-03T20:45:14.866645673Z [34m│[0m ---> Resolving Node version
+2024-09-03T20:45:15.715771192Z [34m│[0m ---> Downloading and extracting Node v16.20.2
+2024-09-03T20:45:18.139390275Z [34m│[0m ---> Parsing package.json
+2024-09-03T20:45:19.023720012Z [34m│[0m ---> Installing yarn@1.22.22
+2024-09-03T20:45:19.866527135Z [34m│[0m ---> No file to start server
+2024-09-03T20:45:19.866565895Z [34m│[0m ---> either use 'docker run' to start container or add index.js or server.js
+2024-09-03T20:45:19.876018871Z [34m│[0m Project contains yarn.lock, using yarn
+2024-09-03T20:45:19.876171204Z [34m│[0m Installing node_modules using yarn (from yarn.lock)
+2024-09-03T20:45:20.168375572Z [34m│[0m Running yarn install
+2024-09-03T20:45:20.168398285Z [34m│[0m 
+2024-09-03T20:45:20.309579279Z [34m│[0m yarn install v1.22.22
+2024-09-03T20:45:20.343224593Z [34m│[0m [1/4] Resolving packages...
+2024-09-03T20:45:21.991787502Z [34m│[0m warning @cyntler/react-doc-viewer > react-pdf > pdfjs-dist > canvas > @mapbox/node-pre-gyp > npmlog@5.0.1: This package is no longer supported.
+2024-09-03T20:45:21.996970161Z [34m│[0m warning @cyntler/react-doc-viewer > react-pdf > pdfjs-dist > canvas > @mapbox/node-pre-gyp > rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+2024-09-03T20:45:22.063354181Z [34m│[0m warning @cyntler/react-doc-viewer > react-pdf > pdfjs-dist > canvas > @mapbox/node-pre-gyp > npmlog > gauge@3.0.2: This package is no longer supported.
+2024-09-03T20:45:22.071675358Z [34m│[0m warning @cyntler/react-doc-viewer > react-pdf > pdfjs-dist > canvas > @mapbox/node-pre-gyp > npmlog > are-we-there-yet@2.0.0: This package is no longer supported.
+2024-09-03T20:45:22.083795721Z [34m│[0m warning @cyntler/react-doc-viewer > react-pdf > pdfjs-dist > canvas > @mapbox/node-pre-gyp > rimraf > glob@7.2.3: Glob versions prior to v9 are no longer supported
+2024-09-03T20:45:22.151907868Z [34m│[0m warning @cyntler/react-doc-viewer > react-pdf > pdfjs-dist > canvas > @mapbox/node-pre-gyp > rimraf > glob > inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2024-09-03T20:45:25.714256079Z [34m│[0m warning @zeit/next-css@1.0.1: Next.js now has built-in support for CSS: https://nextjs.org/docs/basic-features/built-in-css-support. The built-in support solves many bugs and painpoints that the next-css plugin had.
+2024-09-03T20:45:26.938111161Z [34m│[0m warning eslint > file-entry-cache > flat-cache > rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+2024-09-03T20:45:27.346669604Z [34m│[0m warning eslint > @humanwhocodes/config-array@0.11.14: Use @eslint/config-array instead
+2024-09-03T20:45:27.415042068Z [34m│[0m warning eslint > @humanwhocodes/config-array > @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+2024-09-03T20:45:27.733441867Z [34m│[0m warning eslint-config-next > @next/eslint-plugin-next > glob@7.1.7: Glob versions prior to v9 are no longer supported
+2024-09-03T20:45:27.734880205Z [34m│[0m warning eslint-config-next > @next/eslint-plugin-next > glob > inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2024-09-03T20:45:36.746927120Z [34m│[0m [2/4] Fetching packages...
+2024-09-03T20:45:41.068789989Z [34m│[0m warning mini-css-extract-plugin@0.4.3: Invalid bin field for "mini-css-extract-plugin".
+2024-09-03T20:46:04.347625804Z [34m│[0m error pdfjs-dist@4.4.168: The engine "node" is incompatible with this module. Expected version ">=18". Got "16.20.2"
+2024-09-03T20:46:04.363278944Z [34m│[0m error Found incompatible module.
+2024-09-03T20:46:04.363477539Z [34m│[0m info Visit https://yarnpkg.com/en/docs/cli/install for documentation about this command.
+2024-09-03T20:46:04.387431763Z [34m│[0m 
+2024-09-03T20:46:04.387451299Z [34m│[0m unable to invoke layer creator
+2024-09-03T20:46:04.387455849Z [34m│[0m installing node_modules: exit status 1
+2024-09-03T20:46:04.388064964Z [34m│[0m [31;1mERROR: [0mfailed to build: exit status 1
+2024-09-03T20:46:04.534549582Z [34m│[0m 
+2024-09-03T20:46:04.538623794Z [34m│[0m 
+2024-09-03T20:46:04.538637850Z [34m│[0m For documentation on the buildpacks used to build your app, please see:
+2024-09-03T20:46:04.538640927Z [34m│[0m 
+2024-09-03T20:46:04.538645099Z [34m│[0m    Node.js  v0.4.0  https://do.co/apps-buildpack-node
+2024-09-03T20:46:04.539078402Z [34m│[0m 
+2024-09-03T20:46:04.547733640Z [34m│[0m [31m ✘ build failed[0m

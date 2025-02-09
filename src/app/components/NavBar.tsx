@@ -7,6 +7,7 @@ import {
   Link as ChakraLink,
   IconButton,
   Image,
+  Stack,
 } from "@chakra-ui/react";
 
 import Link from "next/link";
@@ -36,8 +37,8 @@ const NavBar = () => {
       url: "/about-us",
     },
     {
-      title: "pricing",
-      url: "/pricing",
+      title: "Resources",
+      url: "/resources",
     },
     {
       title: "Contact",
@@ -92,11 +93,12 @@ const NavBar = () => {
                 md: "none",
                 lg: "flex",
               }}
-              width="65%"
+              width="70%"
               justify="space-between"
               bg="white"
               borderRadius={15}
               px={5}
+              spacing={10}
               boxShadow="5px 5px 18px rgba(0, 0, 0, 0.03)"
             >
               <HStack
@@ -145,7 +147,16 @@ const NavBar = () => {
                   )
                 )}
               </HStack>
-
+              <Button
+                border="#0A52A8"
+                text="Login"
+                onClick={() => router.push("/login")}
+                width="132px"
+                fontSize={18}
+                color="#0A52A8"
+                fontWeight={600}
+                variant="outline"
+              />
               <Button
                 bg="#FBA333"
                 text="SIGN UP"
