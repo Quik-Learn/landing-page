@@ -123,9 +123,9 @@ export default function Footerr() {
               <Link href="/">
                 <ChakraLink>
                   <Image
-                    src="/images/white-logo.svg"
+                    src="/images/quik.png"
                     alt="Logo"
-                    width={214}
+                    width={145}
                     height={53}
                   />
                 </ChakraLink>

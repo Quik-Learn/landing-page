@@ -57,6 +57,16 @@ const Feature = ({ title, image, id, color }: FeatureProps) => {
 };
 
 const Explore = () => {
+  const getBaseSubjects = async () => {
+    const res = await fetch(
+      "https://backend.codemunsta.co/subjects/get_base_subjects/"
+    );
+    const data = await res.json();
+    console.log(data);
+    return data;
+  };
+
+  const baseSubjects = getBaseSubjects();
   return (
     <VStack
       py={{

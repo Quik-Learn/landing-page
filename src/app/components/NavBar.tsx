@@ -45,7 +45,7 @@ const NavBar = () => {
     },
     {
       title: "Login",
-      url: "/login",
+      url: "https://app.codemunsta.co/",
     },
   ];
 
@@ -108,28 +108,53 @@ const NavBar = () => {
                 }}
                 alignSelf="center"
               >
-                {navLinks.map((link) => (
-                  <Link href={link.url} key={link.title}>
-                    <ChakraLink
-                      color={pathname === link.url ? "#0065FF" : "black"}
-                      fontWeight="400"
-                      fontSize="18px"
-                      textTransform="capitalize"
-                      fontFamily="heading"
-                      _hover={{
-                        color: "#D7E9FF",
-                      }}
-                    >
-                      {link.title}
-                    </ChakraLink>
-                  </Link>
-                ))}
+                {navLinks.map((link) =>
+                  link.url === "title" ? (
+                    <Button
+                      key={link.title}
+                      color={"#0065FF"}
+                      variant="outline"
+                      text={link.title}
+                      border="1px solid #0065FF"
+                      borderRadius={10}
+                      onClick={() =>
+                        window.open(
+                          "https://app.codemunsta.co/auth/sign-up",
+                          "_blank"
+                        )
+                      }
+                      width="132px"
+                      fontSize={18}
+                      fontWeight={600}
+                    />
+                  ) : (
+                    <Link href={link.url} key={link.title}>
+                      <ChakraLink
+                        color={pathname === link.url ? "#0065FF" : "black"}
+                        fontWeight="400"
+                        fontSize="18px"
+                        textTransform="capitalize"
+                        fontFamily="heading"
+                        _hover={{
+                          color: "#D7E9FF",
+                        }}
+                      >
+                        {link.title}
+                      </ChakraLink>
+                    </Link>
+                  )
+                )}
               </HStack>
 
               <Button
                 bg="#FBA333"
                 text="SIGN UP"
-                onClick={() => router.push("/signup")}
+                onClick={() =>
+                  window.open(
+                    "https://app.codemunsta.co/auth/sign-up",
+                    "_blank"
+                  )
+                }
                 width="132px"
                 fontSize={18}
                 color="#F5F5F5"
