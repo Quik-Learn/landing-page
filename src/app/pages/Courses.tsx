@@ -41,7 +41,7 @@ const HomePage = () => {
   const getAllCourses = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`https://backend.codemunsta.co/subjects/base/`);
+      const res = await fetch(`https://backend.codemunsta.co/subjects/`);
       const data = await res.json();
       setCourses(data?.data);
       setMeta({
@@ -73,9 +73,12 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    getCourses(category);
-    getBaseSubjects();
-    getAllCourses();
+    if (category) {
+      getCourses(category);
+      getBaseSubjects();
+    } else {
+      getAllCourses();
+    }
   }, [category]);
   console.log(baseSubject);
 

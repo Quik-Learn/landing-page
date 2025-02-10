@@ -238,7 +238,13 @@ const CoursesCover = ({
             currentPage={meta?.current_page}
             next={meta?.next}
             previous={meta?.previous}
-            onPageChange={(page: number) => getCourses(page)}
+            onPageChange={(page: number) => {
+              if (id) {
+                getCourses(id, text, page);
+              } else {
+                getCourses(page);
+              }
+            }}
           />
         </>
       )}
