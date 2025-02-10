@@ -26,6 +26,9 @@ import { PiStudent } from "react-icons/pi";
 import { useRouter } from "next/navigation";
 import Pagination from "./ui/pagination";
 import { useEffect, useState } from "react";
+import debounce from "lodash/debounce";
+import React from "react";
+
 const CourseCard = ({
   title,
   description,
@@ -138,10 +141,31 @@ const CoursesCover = ({
 }: any) => {
   const router = useRouter();
   const [text, setText] = useState("");
+
+  // Memoize the debounced search function
+  const debouncedSearch = React.useMemo(
+    () =>
+      debounce((searchText: string) => {
+        getCourses({ id, text: searchText, page: 1 });
+      }, 500),
+    [id, getCourses] // Only recreate if id or getCourses changes
+  );
+
+  // Initial load
   useEffect(() => {
-    // Fetch courses with default filters when the component mounts
-    getCourses({ id, text, page: 1 });
-  }, [text, id]); // Trigger fetch when filters change
+    getCourses({ id, text: "", page: 1 });
+    // Cleanup
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [id]); // Only run on mount and when id changes
+
+  // Handle search changes
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newText = e.target.value;
+    setText(newText);
+    debouncedSearch(newText); // Pass the value directly instead of using state
+  };
 
   return (
     <VStack
@@ -154,10 +178,27 @@ const CoursesCover = ({
       position="relative"
       maxW="1440px"
       marginX="auto"
+      minH={"300px"}
       paddingX={{ base: 5, md: 10, lg: 20 }}
     >
       {loading ? (
-        <Skeleton height="100%" width="100%" />
+        <Grid
+          templateColumns={{
+            base: "90vw",
+            lg: "repeat(auto-fill, minmax(380px, 1fr))",
+          }}
+          gap={4}
+        >
+          <GridItem>
+            <Skeleton height="100%" width="100%" bg="gray.200" />
+          </GridItem>
+          <GridItem>
+            <Skeleton height="100%" width="100%" bg="gray.200" />
+          </GridItem>
+          <GridItem>
+            <Skeleton height="100%" width="100%" bg="gray.200" />
+          </GridItem>
+        </Grid>
       ) : (
         <>
           {courses?.length ? (
@@ -196,17 +237,11 @@ const CoursesCover = ({
             mb={10}
           >
             <Input
-              placeholder="I want to learn..."
+              placeholder="Search by name or keyword"
               value={text}
-              onChange={(e) => setText(e.target.value)}
+              onChange={handleSearchChange}
+              disabled={loading}
             />
-            <Select placeholder="I'm available">
-              <option value="anytime">Anytime</option>
-            </Select>
-            <Select placeholder="Sort by: Our top pick">
-              <option value="top-pick">Our top pick</option>
-            </Select>
-            <Input placeholder="Search by name or keyword" />
           </SimpleGrid>
           <Box width="full">
             <Grid

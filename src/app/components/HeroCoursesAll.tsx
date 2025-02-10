@@ -88,7 +88,7 @@ const HeroCoursesAll = ({ category }: any) => {
               Looking for an online tutor? QuikLearn is the leading online
               learning platform
             </Text>
-            <Stack direction={"row"} width="100%" height="48px">
+            {/* <Stack direction={"row"} width="100%" height="48px">
               <Input
                 placeholder={"Search here"}
                 bg="white"
@@ -100,7 +100,7 @@ const HeroCoursesAll = ({ category }: any) => {
                 height="100%"
               />
               <Button bg="#0065FF" color="white" text="Search" width={130} />
-            </Stack>
+            </Stack> */}
           </VStack>
           <Stack w={{ base: "100%", lg: "50%" }}>
             <Image

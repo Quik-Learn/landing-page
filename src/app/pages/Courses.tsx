@@ -22,7 +22,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const res = await fetch(
-        `https://backend.codemunsta.co/subjects/base/${id}?Name=${text}?page=${page}`
+        `https://backend.codemunsta.co/subjects/base/${id}?Name=${text}&page_size=${page}`
       );
       const data = await res.json();
       setCourses(data?.data);
@@ -38,11 +38,11 @@ const HomePage = () => {
       setLoading(false);
     }
   };
-  const getAllCourses = async ({ page = 1 }: any) => {
+  const getAllCourses = async ({ page = 1, text = "" }: any) => {
     try {
       setLoading(true);
       const res = await fetch(
-        `https://backend.codemunsta.co/subjects?page=${page}`
+        `https://backend.codemunsta.co/subjects?Name=${text}&page_size=${page}`
       );
       const data = await res.json();
       setCourses(data?.data);
