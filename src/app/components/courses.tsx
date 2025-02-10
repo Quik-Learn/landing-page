@@ -140,7 +140,7 @@ const CoursesCover = ({
   const [text, setText] = useState("");
   useEffect(() => {
     // Fetch courses with default filters when the component mounts
-    getCourses(id, text);
+    getCourses({ id, text, page: 1 });
   }, [text, id]); // Trigger fetch when filters change
 
   return (
@@ -240,9 +240,9 @@ const CoursesCover = ({
             previous={meta?.previous}
             onPageChange={(page: number) => {
               if (id) {
-                getCourses(id, text, page);
+                getCourses({ id, text, page });
               } else {
-                getCourses(page);
+                getCourses({ page });
               }
             }}
           />

@@ -18,11 +18,11 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
   const [meta, setMeta] = useState<any>();
 
-  const getCourses = async (category: string, text: string = "") => {
+  const getCourses = async ({ id, text = "", page = 1 }: any) => {
     try {
       setLoading(true);
       const res = await fetch(
-        `https://backend.codemunsta.co/subjects/base/${category}?Name=${text}`
+        `https://backend.codemunsta.co/subjects/base/${id}?Name=${text}?page=${page}`
       );
       const data = await res.json();
       setCourses(data?.data);
@@ -38,10 +38,12 @@ const HomePage = () => {
       setLoading(false);
     }
   };
-  const getAllCourses = async () => {
+  const getAllCourses = async ({ page = 1 }: any) => {
     try {
       setLoading(true);
-      const res = await fetch(`https://backend.codemunsta.co/subjects/`);
+      const res = await fetch(
+        `https://backend.codemunsta.co/subjects?page=${page}`
+      );
       const data = await res.json();
       setCourses(data?.data);
       setMeta({
@@ -74,10 +76,10 @@ const HomePage = () => {
 
   useEffect(() => {
     if (category) {
-      getCourses(category);
+      getCourses({ id: category, text: "", page: 1 });
       getBaseSubjects();
     } else {
-      getAllCourses();
+      getAllCourses({ page: 1 });
     }
   }, [category]);
   console.log(baseSubject);
@@ -101,7 +103,13 @@ const HomePage = () => {
         short_description={baseSubject?.short_description || ""}
         meta={meta}
         loading={loading}
-        getCourses={getCourses}
+        getCourses={(data: any) => {
+          if (category) {
+            getCourses({ ...data, id: category });
+          } else {
+            getAllCourses(data);
+          }
+        }}
         id={category}
       />
       <Footerr />
