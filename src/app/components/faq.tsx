@@ -53,130 +53,130 @@ export default function Faq() {
   ];
 
   return (
-    <Box
-      position="relative"
-      backgroundPosition="center"
-      backgroundRepeat="no-repeat"
-      backgroundSize="cover"
-      bg="#0A52A8"
-      backgroundImage="/images/underlay.png"
-      display="flex"
-      flexDir={{ base: "column", md: "row" }}
-      padding={{ base: 5, md: 10, lg: 20 }}
-      m={{ base: 5, md: 10, lg: 20 }}
-      borderRadius={42}
-      maxWidth={{ xl: 1440 }}
-      gap={10}
-    >
-      <VStack>
-        <Heading
-          fontSize={{
-            base: 25,
-            sm: 25,
-            md: 51,
-          }}
-          color="#FFCE0F"
-          fontFamily="heading"
-          fontWeight="600"
-        >
-          Frequently Asked Questions
-        </Heading>
-        <Text color="white" fontSize={17}>
-          Still you have any questions? Contact our Team via
-          support@quiklearn.com
-        </Text>
+    <Box maxWidth={{ xl: "1200px" }} marginX="auto" bg="#0A52A8" id="faq">
+      <Box
+        position="relative"
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
+        backgroundImage="/images/underlay.png"
+        display="flex"
+        flexDir={{ base: "column", md: "row" }}
+        padding={{ base: 5, md: 10, lg: 20 }}
+        m={{ base: 5, md: 10, lg: 20 }}
+        borderRadius={42}
+        gap={10}
+      >
+        <VStack>
+          <Heading
+            fontSize={{
+              base: 25,
+              sm: 25,
+              md: 51,
+            }}
+            color="#FFCE0F"
+            fontFamily="heading"
+            fontWeight="600"
+          >
+            Frequently Asked Questions
+          </Heading>
+          <Text color="white" fontSize={17}>
+            Still you have any questions? Contact our Team via
+            support@quiklearn.com
+          </Text>
 
-        <Image
-          display={{ base: "none", md: "block" }}
-          src="/images/faq-girl.svg"
-          alt="girl"
-          mt={8}
-        />
-      </VStack>
-      <VStack justifyContent="center">
-        <Flex
-          bg="white"
-          borderRadius={32}
-          padding={{ base: 3, lg: 12 }}
-          width={{ base: "100%", lg: 672 }}
-          mt={{ base: 0, lg: 0 }}
-          height="fit-content"
-        >
-          <Container>
-            <Accordion
-              allowMultiple
-              width="100%"
-              rounded="lg"
-              fontFamily="heading"
-            >
-              {accordionData.map((item, index) => (
-                <AccordionItem
-                  key={index}
-                  mb={4}
-                  borderWidth={0.69}
-                  borderColor={"#F1F1F3"}
-                  _expanded={{
-                    borderWidth: "0px",
-                    border: "none",
-                  }}
-                >
-                  {({ isExpanded }) => (
-                    <>
-                      <h2>
-                        <AccordionButton
-                          borderBottom={isExpanded ? 1 : 0}
-                          padding={{ base: 1, sm: 3, md: 5, lg: 5 }}
-                        >
-                          <Box as="span" flex="1" textAlign="left">
-                            <Text
-                              fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
-                              fontWeight={500}
-                              color="#262626"
-                            >
-                              {item.title}
-                            </Text>
-                          </Box>
-                          {isExpanded ? (
-                            <IconButton
-                              aria-label="toggle navigation"
-                              bg="#D7E9FF"
-                              color="#262626"
-                              icon={<VscClose color="#262626" />}
-                              _hover={{
-                                bg: "primary",
-                              }}
-                              fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
-                            />
-                          ) : (
-                            <IconButton
-                              aria-label="toggle navigation"
-                              bg="#D7E9FF"
-                              color="#262626"
-                              icon={<GoPlus color="#262626" />}
-                              _hover={{
-                                bg: "primary",
-                              }}
-                              fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
-                            />
-                          )}
-                        </AccordionButton>
-                      </h2>
-                      <AccordionPanel pb={4}>
-                        <Text
-                          color="#4C4C4D"
-                          fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
-                        >
-                          {item.content}
-                        </Text>
-                      </AccordionPanel>
-                    </>
-                  )}
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </Container>
-        </Flex>
-      </VStack>
+          <Image
+            display={{ base: "none", md: "block" }}
+            src="/images/faq-girl.svg"
+            alt="girl"
+            mt={8}
+          />
+        </VStack>
+        <VStack justifyContent="center">
+          <Flex
+            bg="white"
+            borderRadius={32}
+            padding={{ base: 3, lg: 12 }}
+            width={{ base: "100%", lg: 672 }}
+            mt={{ base: 0, lg: 0 }}
+            height="fit-content"
+          >
+            <Container>
+              <Accordion
+                allowMultiple
+                width="100%"
+                rounded="lg"
+                fontFamily="heading"
+              >
+                {accordionData.map((item, index) => (
+                  <AccordionItem
+                    key={index}
+                    mb={4}
+                    borderWidth={0.69}
+                    borderColor={"#F1F1F3"}
+                    _expanded={{
+                      borderWidth: "0px",
+                      border: "none",
+                    }}
+                  >
+                    {({ isExpanded }) => (
+                      <>
+                        <h2>
+                          <AccordionButton
+                            borderBottom={isExpanded ? 1 : 0}
+                            padding={{ base: 1, sm: 3, md: 5, lg: 5 }}
+                          >
+                            <Box as="span" flex="1" textAlign="left">
+                              <Text
+                                fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
+                                fontWeight={500}
+                                color="#262626"
+                              >
+                                {item.title}
+                              </Text>
+                            </Box>
+                            {isExpanded ? (
+                              <IconButton
+                                aria-label="toggle navigation"
+                                bg="#D7E9FF"
+                                color="#262626"
+                                icon={<VscClose color="#262626" />}
+                                _hover={{
+                                  bg: "primary",
+                                }}
+                                fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
+                              />
+                            ) : (
+                              <IconButton
+                                aria-label="toggle navigation"
+                                bg="#D7E9FF"
+                                color="#262626"
+                                icon={<GoPlus color="#262626" />}
+                                _hover={{
+                                  bg: "primary",
+                                }}
+                                fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
+                              />
+                            )}
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel pb={4}>
+                          <Text
+                            color="#4C4C4D"
+                            fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
+                          >
+                            {item.content}
+                          </Text>
+                        </AccordionPanel>
+                      </>
+                    )}
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </Container>
+          </Flex>
+        </VStack>
+      </Box>
     </Box>
   );
 }

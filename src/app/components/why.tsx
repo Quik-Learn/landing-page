@@ -184,7 +184,7 @@ const Why = () => {
                   fontWeight={700}
                   fontFamily="heading"
                 >
-                  0
+                  10,000
                 </Text>
                 <Text fontSize={{ base: 10, md: 18 }} fontWeight={700}>
                   Happy Clients
@@ -197,7 +197,7 @@ const Why = () => {
                   fontWeight={700}
                   fontFamily="heading"
                 >
-                  0
+                  12,343
                 </Text>
                 <Text fontSize={{ base: 12, md: 18 }} fontWeight={700}>
                   Reviews

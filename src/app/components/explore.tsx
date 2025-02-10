@@ -16,6 +16,7 @@ import {
   SimpleGrid,
   Flex,
   Image,
+  Skeleton,
 } from "@chakra-ui/react";
 import { IoMdArrowBack } from "react-icons/io";
 import { IoMdArrowForward } from "react-icons/io";
@@ -24,6 +25,8 @@ import { FeatureProps } from "../types";
 import { service } from "../utils/data";
 import Button from "./ui/button";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useState } from "react";
 const Feature = ({
   title,
   image,
@@ -65,11 +68,11 @@ const Feature = ({
         <Image
           src={image}
           w={{
-            base: 180,
+            base: "100%",
 
             lg: 180,
           }}
-          h={242}
+          h={{ base: 180, lg: 242 }}
           alt={`${id}expolore`}
           alignSelf={"center"}
         />
@@ -84,7 +87,7 @@ const Feature = ({
           bg="#E7F4FF"
           color="#000"
           alignSelf={"flex-end"}
-          onClick={() => router.push(`/courses?category=${title}`)}
+          onClick={() => router.push(`/courses?category=${id}`)}
           fontWeight={400}
           width={127}
         />
@@ -94,7 +97,55 @@ const Feature = ({
 };
 
 const Explore = () => {
+  const [baseSubjects, setBaseSubjects] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(false);
+
   const router = useRouter();
+
+  const handleNext = () => {
+    if (currentIndex + 3 < baseSubjects.length) {
+      setCurrentIndex(currentIndex + 3);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentIndex - 3 >= 0) {
+      setCurrentIndex(currentIndex - 3);
+    }
+  };
+
+  const getBaseSubjects = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(
+        "https://backend.codemunsta.co/subjects/get_base_subjects/"
+      );
+      const data = await res.json();
+
+      // Rotate colors from service array
+      const colorSchemes = service.map((item) => ({
+        color: item.color,
+        bg: item.bg,
+      }));
+
+      const subjectsWithColors = data?.data.map((subject: any, index: any) => ({
+        ...subject,
+        color: colorSchemes[index % colorSchemes.length].color,
+        bg: colorSchemes[index % colorSchemes.length].bg,
+      }));
+
+      setBaseSubjects(subjectsWithColors);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+  useEffect(() => {
+    getBaseSubjects();
+  }, []);
+
   return (
     <VStack
       py={{
@@ -105,6 +156,7 @@ const Explore = () => {
       }}
       position="relative"
       bg="#FEFDF9"
+      id="courses"
       padding={{ base: 5, md: 10, lg: 20 }}
     >
       <Stack position="relative" alignItems="center">
@@ -151,20 +203,39 @@ const Explore = () => {
         </Text>
       </Stack>
       <Box>
-        <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} spacing={10}>
-          {service?.map((item) => (
-            <Feature
-              title={item.title}
-              image={item.image}
-              color={item.color}
-              bg={item.bg}
-              desc="Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam eget elit id imperdiet et. Cras eu sit dignissim lorem "
-              id={item.id}
-              key={item.id}
-              router={router}
+        {loading ? (
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} spacing={10}>
+            <Skeleton
+              w={{ base: "100%", sm: "45vw", md: "30vw", lg: 415 }}
+              h={626}
             />
-          ))}
-        </SimpleGrid>
+            <Skeleton
+              w={{ base: "100%", sm: "45vw", md: "30vw", lg: 415 }}
+              h={626}
+            />
+            <Skeleton
+              w={{ base: "100%", sm: "45vw", md: "30vw", lg: 415 }}
+              h={626}
+            />
+          </SimpleGrid>
+        ) : (
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} spacing={10}>
+            {baseSubjects
+              ?.slice(currentIndex, currentIndex + 3)
+              .map((item: any) => (
+                <Feature
+                  title={item.name}
+                  image={item.image}
+                  color={item.color}
+                  bg={item.bg}
+                  desc={item.description}
+                  id={item.id}
+                  key={item.id}
+                  router={router}
+                />
+              ))}
+          </SimpleGrid>
+        )}
       </Box>
       <HStack alignSelf={"flex-end"} gap={10} mt={6}>
         <IconButton
@@ -172,11 +243,13 @@ const Explore = () => {
           bg="#fff"
           color="#000000"
           borderRadius={"50%"}
-          w={90}
-          h={90}
+          w={{ base: 50, lg: 90 }}
+          h={{ base: 50, lg: 90 }}
           borderColor={"#FFCFCF"}
           borderWidth={1}
           icon={<IoMdArrowBack size={30} />}
+          onClick={handlePrevious}
+          isDisabled={currentIndex === 0}
           _hover={{
             bg: "primary",
           }}
@@ -186,11 +259,13 @@ const Explore = () => {
           bg="#fff"
           color="#000000"
           borderRadius={"50%"}
-          w={90}
-          h={90}
+          w={{ base: 50, lg: 90 }}
+          h={{ base: 50, lg: 90 }}
           borderColor={"#FFCFCF"}
           icon={<IoMdArrowForward size={30} />}
           borderWidth={1}
+          onClick={handleNext}
+          isDisabled={currentIndex + 3 >= baseSubjects.length}
           _hover={{
             bg: "primary",
           }}

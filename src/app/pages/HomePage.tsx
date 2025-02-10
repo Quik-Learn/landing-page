@@ -10,7 +10,7 @@ import Footerr from "../components/footer";
 
 const HomePage = () => {
   return (
-    <div className="bg-[#fff]">
+    <div className=" bg-[#f00]">
       <NavBar />
       <Hero />
       <Explore />
