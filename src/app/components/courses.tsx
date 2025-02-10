@@ -1,15 +1,14 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import {
   VStack,
-  Container,
   HStack,
   Heading,
   Text,
   Tooltip,
   Link as ChakraLink,
-  IconButton,
   Box,
   SimpleGrid,
   Button as ChakraButton,
@@ -17,24 +16,16 @@ import {
   Icon,
   GridItem,
   Grid,
-  List,
-  ListItem,
-  ListIcon,
   Stack,
   Input,
   Select,
+  Skeleton,
 } from "@chakra-ui/react";
-import { LuDot } from "react-icons/lu";
-import { FeatureProps } from "../types";
-import { coursesArray, service } from "../utils/data";
 import { FiClock } from "react-icons/fi";
 import { PiStudent } from "react-icons/pi";
-import Button from "./ui/button";
-import {
-  MdKeyboardDoubleArrowRight,
-  MdKeyboardDoubleArrowLeft,
-} from "react-icons/md";
 import { useRouter } from "next/navigation";
+import Pagination from "./ui/pagination";
+import { useEffect, useState } from "react";
 const CourseCard = ({
   title,
   description,
@@ -42,6 +33,8 @@ const CourseCard = ({
   duration,
   learners,
   router,
+  long_description,
+  id,
 }: any) => (
   <Box borderRadius="md" boxShadow="md" overflow="hidden" bg="white" mb={10}>
     <Image src={imageSrc} alt={title} w="100%" h={320} objectFit="cover" />
@@ -96,10 +89,9 @@ const CourseCard = ({
                 </HStack>
               </HStack>
               <Text fontSize="xs" color="#59595A">
-                Lorem ipsum dolor sit amet consectetur. Tempus tincidunt etiam
-                eget elit id imperdiet{" "}
+                {long_description}
               </Text>
-              <List spacing={3}>
+              {/* <List spacing={3}>
                 <ListItem fontSize="xs" color="#59595A">
                   <ListIcon as={LuDot} color="green.500" />
                   Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in
@@ -115,7 +107,7 @@ const CourseCard = ({
                   Cras eu sit dignissim lorem nibh et. Ac cum eget habitasse in
                   velit fringilla feugiat senectus in.
                 </ListItem>
-              </List>
+              </List> */}
             </VStack>
           </Box>
         }
@@ -127,7 +119,7 @@ const CourseCard = ({
           bg="#C6C6C6"
           variant="outline"
           color="white"
-          onClick={() => router.push("/courses/1")}
+          onClick={() => router.push(`/courses/${id}`)}
         >
           View Details
         </ChakraButton>
@@ -136,8 +128,21 @@ const CourseCard = ({
   </Box>
 );
 
-const CoursesCover = ({ category }: any) => {
+const CoursesCover = ({
+  courses,
+  meta,
+  loading,
+  getCourses,
+  short_description,
+  id,
+}: any) => {
   const router = useRouter();
+  const [text, setText] = useState("");
+  useEffect(() => {
+    // Fetch courses with default filters when the component mounts
+    getCourses(id, text);
+  }, [text, id]); // Trigger fetch when filters change
+
   return (
     <VStack
       py={{
@@ -147,118 +152,96 @@ const CoursesCover = ({ category }: any) => {
         lg: 120,
       }}
       position="relative"
+      maxW="1440px"
+      marginX="auto"
       paddingX={{ base: 5, md: 10, lg: 20 }}
     >
-      {!category?.length ? (
-        <Stack>
-          <Heading
-            fontSize={{
-              base: 25,
-              sm: 25,
-              md: "51px",
-            }}
-            color="#000000"
-            fontFamily="heading"
-            fontWeight="600"
-            textAlign={{ base: "center", md: "center" }}
-            alignSelf={{ base: "center", md: "center" }}
-          >
-            All Available Courses
-          </Heading>
-          <Text
-            color="#59595A"
-            textAlign={{ base: "center", md: "left" }}
-            fontSize={{ lg: "16px" }}
-            fontFamily="heading"
+      {loading ? (
+        <Skeleton height="100%" width="100%" />
+      ) : (
+        <>
+          {courses?.length ? (
+            <Stack>
+              <Heading
+                fontSize={{
+                  base: 25,
+                  sm: 25,
+                  md: "51px",
+                }}
+                color="#000000"
+                fontFamily="heading"
+                fontWeight="600"
+                textAlign={{ base: "center", md: "center" }}
+                alignSelf={{ base: "center", md: "center" }}
+              >
+                All Available Courses
+              </Heading>
+              <Text
+                color="#59595A"
+                textAlign={{ base: "center", md: "left" }}
+                fontSize={{ lg: "16px" }}
+                fontFamily="heading"
+                mb={10}
+                alignSelf={{ base: "center", lg: "center" }}
+                w={{ md: "50%" }}
+              >
+                {short_description}
+              </Text>
+            </Stack>
+          ) : null}
+          <SimpleGrid
+            width="full"
+            columns={{ base: 1, md: 4 }}
+            spacing={4}
             mb={10}
-            alignSelf={{ base: "center", lg: "center" }}
-            w={{ md: "50%" }}
           >
-            Master Math with our comprehensive courses - covering everything
-            from basic Numeracy, to Arithmetic to advanced Calculus.
-          </Text>
-        </Stack>
-      ) : null}
-      <SimpleGrid width="full" columns={{ base: 1, md: 4 }} spacing={4} mb={10}>
-        <Input placeholder="I want to learn..." />
-        <Select placeholder="I'm available">
-          <option value="anytime">Anytime</option>
-        </Select>
-        <Select placeholder="Sort by: Our top pick">
-          <option value="top-pick">Our top pick</option>
-        </Select>
-        <Input placeholder="Search by name or keyword" />
-      </SimpleGrid>
-      <Box width="full">
-        <Grid
-          templateColumns={{
-            base: "90vw",
-            lg: "repeat(auto-fill, minmax(380px, 1fr))",
-          }}
-          gap={4}
-        >
-          {coursesArray.map((course, index) => (
-            <GridItem key={index}>
-              <CourseCard
-                title={course.title}
-                description={course.description}
-                imageSrc={course.imageSrc}
-                duration={course.duration}
-                learners={course.learners}
-                router={router}
-              />
-            </GridItem>
-          ))}
-        </Grid>
-      </Box>
-      <HStack
-        justify="space-between"
-        mt={8}
-        width="full"
-        flexDirection={{ base: "column", lg: "row" }}
-      >
-        <HStack spacing={2}>
-          <ChakraButton
-            leftIcon={<Text as="span">&larr;</Text>}
-            colorScheme="gray"
-            variant="outline"
-          >
-            Prev
-          </ChakraButton>
-
-          <ChakraButton
-            rightIcon={<Text as="span">&rarr;</Text>}
-            colorScheme="gray"
-            variant="outline"
-          >
-            Next
-          </ChakraButton>
-        </HStack>
-        <HStack spacing={2}>
-          <IconButton
-            aria-label="Previous page"
-            icon={<MdKeyboardDoubleArrowLeft />}
-            colorScheme="gray"
-            variant="ghost"
-            isDisabled
-          />
-          {Array.from({ length: 3 }).map((_, index) => (
-            <ChakraButton
-              key={index}
-              colorScheme={index === 0 ? "blue" : "gray"}
-              variant={index === 0 ? "solid" : "outline"}
+            <Input
+              placeholder="I want to learn..."
+              value={text}
+              onChange={(e) => setText(e.target.value)}
+            />
+            <Select placeholder="I'm available">
+              <option value="anytime">Anytime</option>
+            </Select>
+            <Select placeholder="Sort by: Our top pick">
+              <option value="top-pick">Our top pick</option>
+            </Select>
+            <Input placeholder="Search by name or keyword" />
+          </SimpleGrid>
+          <Box width="full">
+            <Grid
+              templateColumns={{
+                base: "90vw",
+                lg: "repeat(auto-fill, minmax(380px, 1fr))",
+              }}
+              gap={4}
             >
-              {index + 1}
-            </ChakraButton>
-          ))}
-          <IconButton
-            aria-label="Next page"
-            icon={<MdKeyboardDoubleArrowRight />}
-            colorScheme="blue"
-            variant="ghost"
+              {courses?.map((course: any, index: any) => (
+                <GridItem key={index}>
+                  <CourseCard
+                    title={course.title}
+                    description={course.short_description}
+                    imageSrc={course.thumbnail}
+                    duration={course.lesson_hours}
+                    long_description={course.description}
+                    learners={course.learners}
+                    router={router}
+                    id={course.id}
+                  />
+                </GridItem>
+              ))}
+            </Grid>
+          </Box>
+          <Pagination
+            totalPages={meta?.total_pages}
+            isLoading={loading}
+            currentPage={meta?.current_page}
+            next={meta?.next}
+            previous={meta?.previous}
+            onPageChange={(page: number) => getCourses(page)}
           />
-        </HStack>
-      </HStack>
+        </>
+      )}
     </VStack>
   );
 };

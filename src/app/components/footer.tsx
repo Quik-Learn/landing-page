@@ -8,19 +8,19 @@ import {
   Stack,
   Text,
   VisuallyHidden,
-  useColorModeValue,
   Link as ChakraLink,
   HStack,
   IconButton,
+  Image,
 } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import { FaInstagram, FaTwitter, FaFacebook } from "react-icons/fa";
-import Logo from "../../assets/images/quik-logo.svg";
 import Link from "next/link";
-import Image from "next/image";
+
 import { IoMdMail } from "react-icons/io";
 import { IoCall } from "react-icons/io5";
 import { RiMapPin2Fill } from "react-icons/ri";
+
 const SocialButton = ({
   children,
   label,
@@ -67,19 +67,19 @@ const footerData = [
   {
     header: "Home",
     links: [
-      { label: "Explore Courses", href: "#" },
-      { label: "Benefits", href: "#" },
-      { label: "Pricing", href: "#" },
-      { label: "Our Testimonials", href: "#" },
-      { label: "Our FAQ", href: "#" },
+      { label: "Explore Courses", href: "#courses" },
+      { label: "Benefits", href: "#benefits" },
+      { label: "Pricing", href: "#pricing" },
+      { label: "Our Testimonials", href: "#testimonials" },
+      { label: "Our FAQ", href: "#faq" },
     ],
   },
   {
     header: "About Us",
     links: [
-      { label: "Company", href: "#" },
-      { label: "Achievements", href: "#" },
-      { label: "Our Goals", href: "#" },
+      { label: "Company", href: "/about-us" },
+      { label: "Achievements", href: "/about-us" },
+      { label: "Our Goals", href: "/about-us" },
     ],
   },
   {
@@ -94,13 +94,13 @@ const footerData = [
     header: "",
     links: [
       {
-        label: "hello@example.com",
+        label: "contact@backyardtech.co.uk",
         href: "#",
         icon: <IoMdMail color="#fff" />,
       },
-      { label: "+91 91813 23 2309", href: "#", icon: <IoCall color="#fff" /> },
+      { label: "+44 07769050055", href: "#", icon: <IoCall color="#fff" /> },
       {
-        label: "Somewhere in the World",
+        label: "18 Bridgefield Close CO4 3BH, Colchester, Essex, UK",
         href: "#",
         icon: <RiMapPin2Fill color="#fff" />,
       },
@@ -112,21 +112,26 @@ export default function Footerr() {
   const year = new Date().getFullYear();
   return (
     <Box bg="black" color="white">
-      <Container as={Stack} maxW={"6xl"} py={6}>
+      <Stack
+        maxW={"1440px"}
+        py={6}
+        marginX={"auto"}
+        padding={{ base: 5, md: 10, lg: 20 }}
+      >
         <SimpleGrid
           templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr" }}
           spacing={8}
           justifyContent="space-between"
         >
           <Stack spacing={{ base: 3, lg: 4 }}>
-            <Box mt={6}>
+            <Box mt={6} ml={{ base: 0, md: 20 }}>
               <Link href="/">
-                <ChakraLink>
+                <ChakraLink display={"block"} w={100} h={100}>
                   <Image
                     src="/images/quik.png"
                     alt="Logo"
-                    width={145}
-                    height={53}
+                    width={"100%"}
+                    height={"100%"}
                   />
                 </ChakraLink>
               </Link>
@@ -188,7 +193,7 @@ export default function Footerr() {
             © {year} example. All rights reserved
           </Text>
         </Stack>
-      </Container>
+      </Stack>
     </Box>
   );
 }

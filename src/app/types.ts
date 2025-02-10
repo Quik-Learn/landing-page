@@ -32,8 +32,8 @@ export type ButtonType = {
 };
 export type FeatureProps = {
   title: string;
-  id: number;
-  image: any;
+  id: string;
+  image: string;
   color: string;
   bg: string;
   desc: string;
