@@ -103,7 +103,7 @@ const Hero = ({ course, loading }: any) => {
                   <HStack spacing={1}>
                     <Icon as={FiClock} />
                     <Text fontSize="base" color="#4D4C5C" fontWeight="semibold">
-                      {course?.lesson_hours}
+                      {course?.duration}
                     </Text>
                   </HStack>
                   <HStack spacing={1}>

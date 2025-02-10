@@ -230,19 +230,21 @@ const CoursesCover = ({
               </Text>
             </Stack>
           ) : null}
-          <SimpleGrid
-            width="full"
-            columns={{ base: 1, md: 4 }}
-            spacing={4}
-            mb={10}
-          >
-            <Input
-              placeholder="Search by name or keyword"
-              value={text}
-              onChange={handleSearchChange}
-              disabled={loading}
-            />
-          </SimpleGrid>
+          {!id ? (
+            <SimpleGrid
+              width="full"
+              columns={{ base: 1, md: 4 }}
+              spacing={4}
+              mb={10}
+            >
+              <Input
+                placeholder="Search by name or keyword"
+                value={text}
+                onChange={handleSearchChange}
+                disabled={loading}
+              />
+            </SimpleGrid>
+          ) : null}
           <Box width="full">
             <Grid
               templateColumns={{
