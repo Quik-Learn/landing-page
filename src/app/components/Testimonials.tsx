@@ -204,6 +204,7 @@ export default function CaptionCarousel() {
               padding={0}
               marginRight={{ md: 10 }}
               alignSelf="center"
+              paddingBottom={10}
             >
               <Stack
                 spacing={6}
