@@ -82,7 +82,7 @@ export default function Faq() {
           </Heading>
           <Text color="white" fontSize={17}>
             Still you have any questions? Contact our Team via
-            support@quiklearn.com
+            support@mytutor.com
           </Text>
 
           <Image

@@ -126,9 +126,9 @@ export default function Footerr() {
           <Stack spacing={{ base: 3, lg: 4 }}>
             <Box mt={6} ml={{ base: 0, md: 20 }}>
               <Link href="/">
-                <ChakraLink display={"block"} w={100} h={100}>
+                <ChakraLink display={"block"} w={200} h={100}>
                   <Image
-                    src="/images/quik.png"
+                    src="/images/logo2.jpg"
                     alt="Logo"
                     width={"100%"}
                     height={"100%"}
