@@ -94,13 +94,31 @@ const footerData = [
     header: "",
     links: [
       {
-        label: "contact@backyardtech.co.uk",
+        label: "enquiries@quiklearn.co.uk",
         href: "#",
         icon: <IoMdMail color="#fff" />,
       },
-      { label: "+44 07769050055", href: "#", icon: <IoCall color="#fff" /> },
       {
-        label: "18 Bridgefield Close CO4 3BH, Colchester, Essex, UK",
+        label: "+44 7830980742",
+        href: "#",
+        name: "Jeremiah",
+        icon: <IoCall color="#fff" />,
+      },
+      {
+        label: "+44 7830987073",
+        href: "#",
+        name: "Fawaz",
+        icon: <IoCall color="#fff" />,
+      },
+      {
+        label: "+44 3300435657",
+        href: "#",
+        name: "Christiana",
+        icon: <IoCall color="#fff" />,
+      },
+      {
+        label:
+          "Interchange Business Centre, Howard Way, Newport Pagnell, MK16 9PY",
         href: "#",
         icon: <RiMapPin2Fill color="#fff" />,
       },
@@ -144,6 +162,7 @@ export default function Footerr() {
                   bg="transparent"
                 />
                 <Text> {item.label}</Text>
+                {item.name && <Text>- {item.name}</Text>}
               </HStack>
             ))}
           </Stack>

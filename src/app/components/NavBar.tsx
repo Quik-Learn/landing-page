@@ -86,6 +86,8 @@ const NavBar = () => {
             bg="white"
             borderRadius={15}
             spacing={10}
+            paddingY={2}
+            paddingX={4}
             boxShadow="5px 5px 18px rgba(0, 0, 0, 0.03)"
           >
             <HStack

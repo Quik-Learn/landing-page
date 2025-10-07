@@ -21,34 +21,55 @@ import { GoPlus } from "react-icons/go";
 export default function Faq() {
   const accordionData = [
     {
-      title: "Can I enroll in multiple courses at once?",
+      title: "What is Quik Learn?",
       content:
-        "Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.",
+        "Quik Learn is a flexible learning platform designed for students from K1 to K12 in the UK. It combines a Learning Management System (LMS) with live video tutoring to give students both structured self-paced learning and personalised one-on-one or group lessons.",
     },
     {
-      title: "Enrollment Process for Different Courses",
+      title: "What subjects do you cover?",
       content:
-        "Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.",
+        "We cover the UK national curriculum subjects including Maths, English, Science, and additional enrichment areas like languages, coding, and test preparation (SATs, GCSEs, 11+).",
     },
     {
-      title: "What kind of support can I expect from instructors?",
+      title: "Is Quik Learn only for UK-based students?",
       content:
-        "Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.",
+        "Our curriculum is tailored to the UK system, but international students who want to follow or strengthen their understanding of the UK curriculum are welcome to join.",
     },
     {
-      title: "What kind of support can I expect from instructors?",
-      content:
-        "Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.",
+      title: "How does Quik Learn deliver lessons?",
+      content: (
+        <>
+          <Text
+            display="block"
+            mb={2}
+            fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
+            color="#4C4C4D">
+            Lessons are delivered in two ways:
+          </Text>
+          <Box as="ul" pl={5} color="#4C4C4D" fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}>
+            <li>
+              Through the LMS, where students access structured modules,
+              assignments, and quizzes.
+            </li>
+            <li>Via live video conferencing sessions with qualified tutors.</li>
+          </Box>
+        </>
+      ),
     },
     {
-      title: "Enrollment Process for Different Courses",
+      title: "What is the duration of a typical lesson?",
       content:
-        "Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.",
+        "Standard lessons last 45–60 minutes, but session length can be adjusted depending on the student’s age, level, and needs.",
     },
     {
-      title: "What kind of support can I expect from instructors?",
+      title: "Can sessions be rescheduled or cancelled?",
       content:
-        "Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.",
+        "Yes, sessions can be rescheduled or cancelled with prior notice. Our platform makes it easy to manage bookings directly from your dashboard.",
+    },
+    {
+      title: "Who are the tutors on Quik Learn?",
+      content:
+        "All tutors are qualified professionals with experience teaching K1–K12 students in the UK. Each tutor is carefully vetted for subject knowledge, teaching skills, and student engagement. We run background checks, request references, and provide ongoing training to ensure our tutors meet the highest teaching standards.",
     },
   ];
 
@@ -161,12 +182,16 @@ export default function Faq() {
                           </AccordionButton>
                         </h2>
                         <AccordionPanel pb={4}>
-                          <Text
-                            color="#4C4C4D"
-                            fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
-                          >
-                            {item.content}
-                          </Text>
+                          {typeof item.content === "string" ? (
+                            <Text
+                              color="#4C4C4D"
+                              fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
+                            >
+                              {item.content}
+                            </Text>
+                          ) : (
+                            item.content
+                          )}
                         </AccordionPanel>
                       </>
                     )}

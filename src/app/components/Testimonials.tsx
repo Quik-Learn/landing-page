@@ -199,6 +199,8 @@ export default function CaptionCarousel() {
                 marginRight={{ md: 10 }}
                 alignSelf="center"
                 paddingBottom={20}
+                height={"500px"}
+                maxHeight={"500px"}
               >
                 <Stack
                   spacing={6}
@@ -207,6 +209,7 @@ export default function CaptionCarousel() {
                   padding={12}
                   mt={10}
                   position="relative"
+                  height={"400px"}
                 >
                   <Image
                     src={card.image}
