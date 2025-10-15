@@ -14,6 +14,7 @@ import {
   Link as ChakraLink,
   IconButton,
   Divider,
+  Box,
 } from "@chakra-ui/react";
 import HeroImage from "../../assets/images/hero.svg";
 import Flexible from "../../assets/images/flexible.svg";
@@ -64,10 +65,11 @@ const Why = () => {
           />
           <Text
             color="#59595A"
-            fontSize={{ lg: 24, base: 16 }}
+            fontSize={{ lg: 20, base: 16 }}
             textAlign="center"
             mt={5}
             mb={{ lg: 10 }}
+            maxW="950px"
           >
             Experts tutors, personalized learning, and proven results - discover
             why students and parents trust us for academic success.
@@ -121,10 +123,11 @@ const Why = () => {
 
             <Text
               color="#59595A"
-              fontSize={{ lg: 24 }}
+              fontSize={{ lg: 20 }}
               textAlign={{ base: "center", lg: "right" }}
               mt={5}
               mb={10}
+              maxW="500px"
             >
               We offer flexible tutoring schedules to accommodate the busy lives
               of our students and their families. Whether it's after school, on
@@ -141,6 +144,7 @@ const Why = () => {
             md: "row",
           }}
           py={2}
+          gap={10}
         >
           <VStack
             spacing={3}
@@ -163,52 +167,140 @@ const Why = () => {
 
             <Text
               color="#59595A"
-              fontSize={{ lg: 24 }}
+              fontSize={{ lg: 20 }}
               textAlign={{ base: "center", lg: "left" }}
               mt={5}
               mb={10}
+              maxW="500px"
             >
               Experience an interactive learning environment where personalised
               guidance meets dynamic resources, ensuring every student achieves
               their full potential.
             </Text>
-            <HStack
-              spacing={10}
-              justifyContent="space-around"
-              fontFamily="heading"
-            >
-              <Stack align="center">
-                <Text
-                  color="#FFCE0F"
-                  fontSize={{ base: 35, md: 57 }}
-                  fontWeight={700}
-                  fontFamily="heading"
-                >
-                  10,000
-                </Text>
-                <Text fontSize={{ base: 10, md: 18 }} fontWeight={700}>
-                  Happy Clients
-                </Text>
-              </Stack>
-              <Stack align="center">
-                <Text
-                  color="#0065FF"
-                  fontSize={{ base: 35, md: 57 }}
-                  fontWeight={700}
-                  fontFamily="heading"
-                >
-                  12,343
-                </Text>
-                <Text fontSize={{ base: 12, md: 18 }} fontWeight={700}>
-                  Reviews
-                </Text>
-              </Stack>
-            </HStack>
           </VStack>
-          <Stack w={{ base: "100%", lg: "50%" }}>
+          <Stack
+            position="relative"
+            w={{ base: "100%", lg: "50%" }}
+            display={{ base: "none", lg: "block" }}
+          >
+            <Image
+              src="/svg/rectangle.png"
+              alt="Hero Image"
+              width={100}
+              height={100}
+              position="absolute"
+              top="-50px"
+              left="-70px"
+              alignSelf="left"
+              w="auto"
+              h="auto"
+              zIndex={-1}
+            />
+            <Box>
+              <Image
+                src="/svg/learning.png"
+                alt="Hero Image"
+                width={80}
+                height={80}
+                alignSelf="center"
+                w="auto"
+                h="auto"
+              />
+            </Box>
+            <Box
+              maxW="250px"
+              bg="white"
+              position="absolute"
+              rounded="2xl"
+              top="50%"
+              left="-70px"
+              padding="12px"
+              paddingLeft="20px"
+              shadow="2xl"
+            >
+              <HStack>
+                <Image
+                  src="/svg/cap.svg"
+                  alt="Hero Image"
+                  width={16}
+                  height={16}
+                  w="auto"
+                  h="auto"
+                />
+                <Text fontWeight="bold" fontSize={18}>
+                  Interactive Whiteboard
+                </Text>
+              </HStack>
+              <Text color="#ACACAC" fontSize={16} mt={2} fontWeight={500}>
+                Engage with our interactive whiteboard for hands-on learning
+              </Text>
+            </Box>
+            <Box
+              maxW="250px"
+              bg="white"
+              position="absolute"
+              rounded="2xl"
+              top="30%"
+              right="-70px"
+              padding="12px"
+              paddingLeft="20px"
+              shadow="2xl"
+            >
+              <HStack>
+                <Image
+                  src="/svg/edu.svg"
+                  alt="Why choose us"
+                  width={16}
+                  height={16}
+                  w="auto"
+                  h="auto"
+                />
+                <Text fontWeight="bold" fontSize={18}>
+                  Interactive Test
+                </Text>
+              </HStack>
+              <Text color="#ACACAC" fontSize={16} mt={2} fontWeight={500}>
+                Boost learning with our interactive test tools engage, learn,
+                and excel.
+              </Text>
+            </Box>
+            <Box
+              maxW="250px"
+              bg="white"
+              position="absolute"
+              rounded="2xl"
+              bottom="-30px"
+              right="-10px"
+              padding="16px"
+              paddingLeft="20px"
+              shadow="2xl"
+            >
+              <HStack>
+                <Image
+                  src="/svg/book.svg"
+                  alt="Hero Image"
+                  width={16}
+                  height={16}
+                  w="auto"
+                  h="auto"
+                />
+                <Text fontWeight="bold" fontSize={18}>
+                  Online Library
+                </Text>
+              </HStack>
+              <Text color="#ACACAC" fontSize={16} mt={2} fontWeight={500}>
+                Explore our online library for diverse, anytime learning
+                resources.
+              </Text>
+            </Box>
+          </Stack>
+          <Stack
+            w={{ base: "100%", lg: "50%" }}
+            display={{ base: "block", lg: "none" }}
+          >
             <Image
               src={Interactive}
-              alt="Hero Image"
+              alt="Interactive Learning"
               width={100}
               height={100}
               alignSelf="center"

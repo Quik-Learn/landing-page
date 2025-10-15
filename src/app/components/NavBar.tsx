@@ -59,6 +59,7 @@ const NavBar = () => {
       <VStack
         maxWidth={"1440px"}
         marginX={"auto"}
+        marginTop={22}
         zIndex={100}
         fontFamily="heading"
         paddingX={{ base: 5, md: 10, lg: 20 }}

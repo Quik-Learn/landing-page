@@ -132,9 +132,9 @@ export default function Footerr() {
     <Box bg="black" color="white">
       <Stack
         maxW={"1440px"}
-        py={6}
+        py={2}
         marginX={"auto"}
-        padding={{ base: 5, md: 10, lg: 20 }}
+        padding={{ base: 5, md: 10, lg: 10 }}
       >
         <SimpleGrid
           templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr" }}

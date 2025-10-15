@@ -19,6 +19,7 @@ import { IoMdCheckmark } from "react-icons/io";
 import { pricingData } from "../utils/data";
 import { PriceWrapperProps } from "../types";
 import { LiaWindowCloseSolid } from "react-icons/lia";
+import { motion } from "framer-motion";
 interface Props {
   children: React.ReactNode;
 }
@@ -43,33 +44,46 @@ function PriceWrapper({ children, bgColor }: PriceWrapperProps) {
 }
 export default function Pricing() {
   return (
-    <Box bg="#F9F9F9" id="pricing">
-      <Box
-        py={{ lg: 70 }}
-        maxWidth={{ xl: 1440 }}
-        marginX="auto"
-        fontFamily="heading"
-        padding={{ base: 5, md: 10, lg: 20 }}
-      >
-        <VStack spacing={2} textAlign="center" pt={5} pb={{ base: 10, lg: 20 }}>
-          <Heading
-            fontSize={{
-              base: 25,
-              sm: 25,
-              md: 51,
-            }}
-            color="#000000"
-            fontFamily="heading"
-            fontWeight="600"
-            textAlign="center"
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <Box bg="#F9F9F9" id="pricing">
+        <Box
+          py={{ lg: 70 }}
+          maxWidth={{ xl: 1440 }}
+          marginX="auto"
+          fontFamily="heading"
+          padding={{ base: 5, md: 10, lg: 20 }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
-            Our Pricing
-          </Heading>
-          <Text color="black" textAlign="center" w={{ md: "50%" }}>
-            Transparent pricing for quality education. Choose the plan that
-            suits your needs and start your academic journey.
-          </Text>
-        </VStack>
+            <VStack spacing={2} textAlign="center" pt={5} pb={{ base: 10, lg: 20 }}>
+              <Heading
+                fontSize={{
+                  base: 25,
+                  sm: 25,
+                  md: 51,
+                }}
+                color="#000000"
+                fontFamily="heading"
+                fontWeight="600"
+                textAlign="center"
+              >
+                Our Pricing
+              </Heading>
+              <Text color="black" textAlign="center" w={{ md: "50%" }}>
+                Transparent pricing for quality education. Choose the plan that
+                suits your needs and start your academic journey.
+              </Text>
+            </VStack>
+          </motion.div>
         {/* <Stack
         direction={{ base: "column", md: "row" }}
         textAlign="center"
@@ -84,7 +98,22 @@ export default function Pricing() {
         >
           {pricingData.map((tier, index) => {
             return (
-              <PriceWrapper key={index} bgColor={tier.bgColor}>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.2 + 0.4, 
+                  ease: "easeOut" 
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <PriceWrapper bgColor={tier.bgColor}>
                 <Box position="relative" color={tier.textColor}>
                   {/* {tier.isPopular && (
                   <Box
@@ -195,10 +224,12 @@ export default function Pricing() {
                   </VStack>
                 </Box>
               </PriceWrapper>
+              </motion.div>
             );
           })}
         </SimpleGrid>
       </Box>
     </Box>
+    </motion.div>
   );
 }
