@@ -66,7 +66,7 @@ const NavBar = () => {
       >
         <HStack justify="space-between" width={"full"} alignItems={"center"}>
           <Link href="/">
-            <ChakraLink w="50px" h="50px" display={"block"}>
+            <ChakraLink w="80px" h="80px" display={"block"}>
               <Image
                 src="/images/quik.png"
                 alt="Logo"

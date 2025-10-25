@@ -20,6 +20,7 @@ import { pricingData } from "../utils/data";
 import { PriceWrapperProps } from "../types";
 import { LiaWindowCloseSolid } from "react-icons/lia";
 import { motion } from "framer-motion";
+import { useState } from "react";
 interface Props {
   children: React.ReactNode;
 }
@@ -43,6 +44,25 @@ function PriceWrapper({ children, bgColor }: PriceWrapperProps) {
   );
 }
 export default function Pricing() {
+  const [loading, setLoading] = useState(false);
+
+  const getPricing = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(
+        "https://backend.quiklearn.co.uk/finance/plans/all/"
+      );
+      const data = await res.json();
+      console.log("pricing data", data);
+
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

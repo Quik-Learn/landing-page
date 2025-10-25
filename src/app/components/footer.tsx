@@ -95,31 +95,19 @@ const footerData = [
     links: [
       {
         label: "enquiries@quiklearn.co.uk",
-        href: "#",
+        href: "mailto:enquiries@quiklearn.co.uk",
         icon: <IoMdMail color="#fff" />,
       },
       {
-        label: "+44 7830980742",
-        href: "#",
-        name: "Jeremiah",
-        icon: <IoCall color="#fff" />,
-      },
-      {
-        label: "+44 7830987073",
-        href: "#",
-        name: "Fawaz",
-        icon: <IoCall color="#fff" />,
-      },
-      {
         label: "+44 3300435657",
-        href: "#",
-        name: "Christiana",
+        href: "tel:+443300435657",
+        name: "Customer Support",
         icon: <IoCall color="#fff" />,
       },
       {
         label:
           "Interchange Business Centre, Howard Way, Newport Pagnell, MK16 9PY",
-        href: "#",
+        href: "https://maps.google.com/?q=Interchange+Business+Centre,+Howard+Way,+Newport+Pagnell,+MK16+9PY",
         icon: <RiMapPin2Fill color="#fff" />,
       },
     ],
@@ -155,7 +143,19 @@ export default function Footerr() {
               </Link>
             </Box>
             {footerData[3].links?.map((item: any, index) => (
-              <HStack key={index} as="a" href={item.href}>
+              <HStack
+                key={index}
+                as="a"
+                href={item.href}
+                target={
+                  item.href.includes("maps.google.com") ? "_blank" : undefined
+                }
+                rel={
+                  item.href.includes("maps.google.com")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+              >
                 <IconButton
                   aria-label={item.label}
                   icon={item.icon}

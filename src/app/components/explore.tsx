@@ -46,17 +46,17 @@ const Feature = ({
       borderWidth="1px"
       borderColor="#FDD3D3"
       fontFamily="heading"
-      padding={1}
+      padding={2}
       w={{ base: "100%", sm: "45vw", md: "30vw", lg: 415 }}
       h={626}
     >
-      <Stack bg={bg} borderRadius={45} p={8} h={456} w={"100%"}>
+      <Stack bg={bg} borderRadius={45}  p={4} h={"100%"} w={"100%"}>
         <Stack
           bg="white"
           borderRadius={24}
           borderWidth={0.5}
           borderColor={color}
-          padding="10px"
+          padding="5px"
           align="center"
           justify={"center"}
           mb={4}
@@ -70,14 +70,14 @@ const Feature = ({
           w={{
             base: "100%",
 
-            lg: 180,
+            lg: "100%",
           }}
-          h={{ base: 180, lg: 242 }}
+          h={{ base: 180, lg: 232 }}
           alt={`${id}expolore`}
           alignSelf={"center"}
         />
       </Stack>
-      <Stack p={10}>
+      <Stack p={5} gap={2}>
         <Text fontSize={14} color="#000" fontFamily="heading">
           {desc}
         </Text>
@@ -119,7 +119,7 @@ const Explore = () => {
     try {
       setLoading(true);
       const res = await fetch(
-        "https://backend.codemunsta.co/subjects/get_base_subjects/"
+        "https://backend.quiklearn.co.uk/subjects/get_base_subjects/"
       );
       const data = await res.json();
 
