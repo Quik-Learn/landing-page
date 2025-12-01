@@ -104,13 +104,7 @@ export default function Pricing() {
               </Text>
             </VStack>
           </motion.div>
-        {/* <Stack
-        direction={{ base: "column", md: "row" }}
-        textAlign="center"
-        justify="center"
-        spacing={{ base: 4, lg: 10 }}
-        py={10}
-      > */}
+        
         <SimpleGrid
           columns={{ base: 1, sm: 2, md: 2, lg: 3 }}
           spacing={10}
@@ -135,27 +129,7 @@ export default function Pricing() {
               >
                 <PriceWrapper bgColor={tier.bgColor}>
                 <Box position="relative" color={tier.textColor}>
-                  {/* {tier.isPopular && (
-                  <Box
-                    position="absolute"
-                    top="-16px"
-                    left="50%"
-                    style={{ transform: "translate(-50%)" }}
-                  >
-                    <Text
-                      textTransform="uppercase"
-                      bg={popularLabelBgColor}
-                      px={3}
-                      py={1}
-                      color={popularLabelTextColor}
-                      fontSize="sm"
-                      fontWeight="600"
-                      rounded="xl"
-                    >
-                      Most Popular
-                    </Text>
-                  </Box>
-                )} */}
+                  
                   <Box
                     py={4}
                     alignItems="center"
@@ -234,7 +208,7 @@ export default function Pricing() {
                         bg={tier.buttonColorScheme}
                         color={tier.buttonText}
                         onClick={() =>
-                          window.open("https://app.codemunsta.co/", "_blank")
+                          window.open("https://home.quiklearn.co.uk/", "_blank")
                         }
                         variant={tier.buttonVariant || "solid"}
                       >

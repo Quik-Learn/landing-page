@@ -46,7 +46,7 @@ const NavBar = () => {
     },
     // {
     //   title: "Login",
-    //   url: "https://app.codemunsta.co/",
+    //   url: "home.quiklearn.co.uk",
     // },
   ];
 
@@ -120,7 +120,9 @@ const NavBar = () => {
             <Button
               border="#0A52A8"
               text="Login"
-              onClick={() => window.open("https://app.codemunsta.co", "_blank")}
+              onClick={() =>
+                window.open("https://home.quiklearn.co.uk", "_blank")
+              }
               width="122px"
               fontSize={18}
               color="#0A52A8"
@@ -131,7 +133,10 @@ const NavBar = () => {
               bg="#FBA333"
               text="SIGN UP"
               onClick={() =>
-                window.open("https://app.codemunsta.co/auth/sign-up", "_blank")
+                window.open(
+                  "https://home.quiklearn.co.uk/auth/sign-up",
+                  "_blank"
+                )
               }
               width="122px"
               fontSize={18}
