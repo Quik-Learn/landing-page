@@ -13,7 +13,7 @@ const HomePage = () => {
   const getSingleCourse = async (id: any) => {
     try {
       setLoading(true);
-      const res = await fetch(`https://backend.codemunsta.co/subjects/${id}`);
+      const res = await fetch(`https://backend.quiklearn.co.uk/subjects/${id}`);
       const data = await res.json();
 
       setCourse(data?.data?.subject);

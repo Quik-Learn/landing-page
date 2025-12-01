@@ -19,6 +19,8 @@ import { IoMdCheckmark } from "react-icons/io";
 import { pricingData } from "../utils/data";
 import { PriceWrapperProps } from "../types";
 import { LiaWindowCloseSolid } from "react-icons/lia";
+import { motion } from "framer-motion";
+import { useState } from "react";
 interface Props {
   children: React.ReactNode;
 }
@@ -42,41 +44,67 @@ function PriceWrapper({ children, bgColor }: PriceWrapperProps) {
   );
 }
 export default function Pricing() {
+  const [loading, setLoading] = useState(false);
+
+  const getPricing = async () => {
+    try {
+      setLoading(true);
+      const res = await fetch(
+        "https://backend.quiklearn.co.uk/finance/plans/all/"
+      );
+      const data = await res.json();
+      console.log("pricing data", data);
+
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  
   return (
-    <Box bg="#F9F9F9" id="pricing">
-      <Box
-        py={{ lg: 70 }}
-        maxWidth={{ xl: 1440 }}
-        marginX="auto"
-        fontFamily="heading"
-        padding={{ base: 5, md: 10, lg: 20 }}
-      >
-        <VStack spacing={2} textAlign="center" pt={5} pb={{ base: 10, lg: 20 }}>
-          <Heading
-            fontSize={{
-              base: 25,
-              sm: 25,
-              md: 51,
-            }}
-            color="#000000"
-            fontFamily="heading"
-            fontWeight="600"
-            textAlign="center"
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
+      <Box bg="#F9F9F9" id="pricing">
+        <Box
+          py={{ lg: 70 }}
+          maxWidth={{ xl: 1440 }}
+          marginX="auto"
+          fontFamily="heading"
+          padding={{ base: 5, md: 10, lg: 20 }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
-            Our Pricing
-          </Heading>
-          <Text color="black" textAlign="center" w={{ md: "50%" }}>
-            Transparent pricing for quality education. Choose the plan that
-            suits your needs and start your academic journey.
-          </Text>
-        </VStack>
-        {/* <Stack
-        direction={{ base: "column", md: "row" }}
-        textAlign="center"
-        justify="center"
-        spacing={{ base: 4, lg: 10 }}
-        py={10}
-      > */}
+            <VStack spacing={2} textAlign="center" pt={5} pb={{ base: 10, lg: 20 }}>
+              <Heading
+                fontSize={{
+                  base: 25,
+                  sm: 25,
+                  md: 51,
+                }}
+                color="#000000"
+                fontFamily="heading"
+                fontWeight="600"
+                textAlign="center"
+              >
+                Our Pricing
+              </Heading>
+              <Text color="black" textAlign="center" w={{ md: "50%" }}>
+                Transparent pricing for quality education. Choose the plan that
+                suits your needs and start your academic journey.
+              </Text>
+            </VStack>
+          </motion.div>
+        
         <SimpleGrid
           columns={{ base: 1, sm: 2, md: 2, lg: 3 }}
           spacing={10}
@@ -84,29 +112,24 @@ export default function Pricing() {
         >
           {pricingData.map((tier, index) => {
             return (
-              <PriceWrapper key={index} bgColor={tier.bgColor}>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ 
+                  duration: 0.6, 
+                  delay: index * 0.2 + 0.4, 
+                  ease: "easeOut" 
+                }}
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <PriceWrapper bgColor={tier.bgColor}>
                 <Box position="relative" color={tier.textColor}>
-                  {/* {tier.isPopular && (
-                  <Box
-                    position="absolute"
-                    top="-16px"
-                    left="50%"
-                    style={{ transform: "translate(-50%)" }}
-                  >
-                    <Text
-                      textTransform="uppercase"
-                      bg={popularLabelBgColor}
-                      px={3}
-                      py={1}
-                      color={popularLabelTextColor}
-                      fontSize="sm"
-                      fontWeight="600"
-                      rounded="xl"
-                    >
-                      Most Popular
-                    </Text>
-                  </Box>
-                )} */}
+                  
                   <Box
                     py={4}
                     alignItems="center"
@@ -185,7 +208,7 @@ export default function Pricing() {
                         bg={tier.buttonColorScheme}
                         color={tier.buttonText}
                         onClick={() =>
-                          window.open("https://app.codemunsta.co/", "_blank")
+                          window.open("https://home.quiklearn.co.uk/", "_blank")
                         }
                         variant={tier.buttonVariant || "solid"}
                       >
@@ -195,10 +218,12 @@ export default function Pricing() {
                   </VStack>
                 </Box>
               </PriceWrapper>
+              </motion.div>
             );
           })}
         </SimpleGrid>
       </Box>
     </Box>
+    </motion.div>
   );
 }

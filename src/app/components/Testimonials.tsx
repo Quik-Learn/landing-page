@@ -86,30 +86,37 @@ export default function CaptionCarousel() {
     {
       title: "David K.",
       text: "“Quik Learn has been a game-changer for my child's education. The website is easy to navigate, and the lessons are tailored to their individual needs. I've seen significant improvement in their reading and math skills, and I couldn't be happier!”",
-      image: "/images/comment.svg",
+      image: "/svg/img1.svg",
       remark: "Satisfactory",
       rating: 3.5,
     },
     {
       title: "Sarah T",
       text: "I was hesitant to try online learning, but Quik Learn has exceeded my expectations. The engaging activities and quizzes have made learning fun for my child, and the customer support team is always available to help. I highly recommend Quik Learn to any parent looking for a quality online education.”",
-      image: "/images/comment.svg",
+      image: "/svg/img2.svg",
       remark: "Good Choice!",
       rating: 5,
     },
     {
       title: "Mark S.",
       text: "My child was struggling in school, but since starting with Quik Learn, I've seen a significant boost in their confidence and academic performance. The personalized learning plans and regular progress updates have been invaluable in helping me support their education. Thank you, Quik Learn !”",
-      image: "/images/comment.svg",
+      image: "/svg/img3.svg",
       remark: "Great Teacher",
       rating: 5,
     },
     {
       title: "Rachel G.",
       text: "“I love how Quik Learn makes learning fun and interactive! The website is easy to use, and the lessons are tailored to my child's individual needs. I've seen significant improvement in their literacy and numeracy skills, and I'm confident that Quik Learn will continue to support their educational journey.”",
-      image: "/images/comment.svg",
+      image: "/svg/img4.svg",
       remark: "Excellent",
       rating: 4.5,
+    },
+    {
+      title: "Dav A.",
+      text: "“Quik Learn has been a game-changer for my child's education. The website is easy to navigate, and the lessons are tailored to their individual needs. I've seen significant improvement in their reading and math skills, and I couldn't be happier!”",
+      image: "/svg/img6.svg",
+      remark: "Satisfactory",
+      rating: 3.5,
     },
   ];
   const CustomDot = ({ onClick, ...rest }: any) => {
@@ -149,7 +156,7 @@ export default function CaptionCarousel() {
         marginX="auto"
         padding={{ base: 10, lg: 20 }}
       >
-        <VStack spacing={2} textAlign="center" pt={2} pb={10}>
+        <VStack spacing={2} textAlign="center" pt={2} pb={12}>
           <Heading
             fontSize={{
               base: 25,
@@ -183,7 +190,8 @@ export default function CaptionCarousel() {
             customDot={<CustomDot />}
             ssr={true} // means to render carousel on server-side.
             infinite={true}
-            autoPlaySpeed={1000}
+            autoPlay={true}
+            autoPlaySpeed={3000}
             arrows={false}
             keyBoardControl={true}
             customTransition="all .5"
@@ -199,6 +207,8 @@ export default function CaptionCarousel() {
                 marginRight={{ md: 10 }}
                 alignSelf="center"
                 paddingBottom={20}
+                height={"500px"}
+                maxHeight={"500px"}
               >
                 <Stack
                   spacing={6}
@@ -207,6 +217,7 @@ export default function CaptionCarousel() {
                   padding={12}
                   mt={10}
                   position="relative"
+                  height={"400px"}
                 >
                   <Image
                     src={card.image}

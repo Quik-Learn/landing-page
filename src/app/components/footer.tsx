@@ -94,14 +94,20 @@ const footerData = [
     header: "",
     links: [
       {
-        label: "contact@backyardtech.co.uk",
-        href: "#",
+        label: "enquiries@quiklearn.co.uk",
+        href: "mailto:enquiries@quiklearn.co.uk",
         icon: <IoMdMail color="#fff" />,
       },
-      { label: "+44 07769050055", href: "#", icon: <IoCall color="#fff" /> },
       {
-        label: "18 Bridgefield Close CO4 3BH, Colchester, Essex, UK",
-        href: "#",
+        label: "+44 3300435657",
+        href: "tel:+443300435657",
+        name: "Customer Support",
+        icon: <IoCall color="#fff" />,
+      },
+      {
+        label:
+          "Interchange Business Centre, Howard Way, Newport Pagnell, MK16 9PY",
+        href: "https://maps.google.com/?q=Interchange+Business+Centre,+Howard+Way,+Newport+Pagnell,+MK16+9PY",
         icon: <RiMapPin2Fill color="#fff" />,
       },
     ],
@@ -114,9 +120,9 @@ export default function Footerr() {
     <Box bg="black" color="white">
       <Stack
         maxW={"1440px"}
-        py={6}
+        py={2}
         marginX={"auto"}
-        padding={{ base: 5, md: 10, lg: 20 }}
+        padding={{ base: 5, md: 10, lg: 10 }}
       >
         <SimpleGrid
           templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr" }}
@@ -137,13 +143,26 @@ export default function Footerr() {
               </Link>
             </Box>
             {footerData[3].links?.map((item: any, index) => (
-              <HStack key={index} as="a" href={item.href}>
+              <HStack
+                key={index}
+                as="a"
+                href={item.href}
+                target={
+                  item.href.includes("maps.google.com") ? "_blank" : undefined
+                }
+                rel={
+                  item.href.includes("maps.google.com")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+              >
                 <IconButton
                   aria-label={item.label}
                   icon={item.icon}
                   bg="transparent"
                 />
                 <Text> {item.label}</Text>
+                {item.name && <Text>- {item.name}</Text>}
               </HStack>
             ))}
           </Stack>

@@ -46,7 +46,7 @@ const NavBar = () => {
     },
     // {
     //   title: "Login",
-    //   url: "https://app.codemunsta.co/",
+    //   url: "home.quiklearn.co.uk",
     // },
   ];
 
@@ -59,13 +59,14 @@ const NavBar = () => {
       <VStack
         maxWidth={"1440px"}
         marginX={"auto"}
+        marginTop={22}
         zIndex={100}
         fontFamily="heading"
         paddingX={{ base: 5, md: 10, lg: 20 }}
       >
         <HStack justify="space-between" width={"full"} alignItems={"center"}>
           <Link href="/">
-            <ChakraLink w="50px" h="50px" display={"block"}>
+            <ChakraLink w="80px" h="80px" display={"block"}>
               <Image
                 src="/images/quik.png"
                 alt="Logo"
@@ -86,6 +87,8 @@ const NavBar = () => {
             bg="white"
             borderRadius={15}
             spacing={10}
+            paddingY={2}
+            paddingX={4}
             boxShadow="5px 5px 18px rgba(0, 0, 0, 0.03)"
           >
             <HStack
@@ -117,7 +120,9 @@ const NavBar = () => {
             <Button
               border="#0A52A8"
               text="Login"
-              onClick={() => window.open("https://app.codemunsta.co", "_blank")}
+              onClick={() =>
+                window.open("https://home.quiklearn.co.uk", "_blank")
+              }
               width="122px"
               fontSize={18}
               color="#0A52A8"
@@ -128,7 +133,10 @@ const NavBar = () => {
               bg="#FBA333"
               text="SIGN UP"
               onClick={() =>
-                window.open("https://app.codemunsta.co/auth/sign-up", "_blank")
+                window.open(
+                  "https://home.quiklearn.co.uk/auth/sign-up",
+                  "_blank"
+                )
               }
               width="122px"
               fontSize={18}

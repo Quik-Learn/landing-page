@@ -22,7 +22,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const res = await fetch(
-        `https://backend.codemunsta.co/subjects/base/${id}?Name=${text}?page=${page}`
+        `https://backend.quiklearn.co.uk/subjects/base/${id}?Name=${text}?page=${page}`
       );
       const data = await res.json();
       setCourses(data?.data);
@@ -42,7 +42,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const res = await fetch(
-        `https://backend.codemunsta.co/subjects?page=${page}`
+        `https://backend.quiklearn.co.uk/subjects?page=${page}`
       );
       const data = await res.json();
       setCourses(data?.data);
@@ -62,7 +62,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const res = await fetch(
-        "https://backend.codemunsta.co/subjects/get_base_subjects/"
+        "https://backend.quiklearn.co.uk/subjects/get_base_subjects/"
       );
       const data = await res.json();
 
