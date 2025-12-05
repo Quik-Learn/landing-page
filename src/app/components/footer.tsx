@@ -209,7 +209,7 @@ export default function Footerr() {
           mt={6}
         >
           <Text fontSize={"sm"} textAlign="center">
-            © {year} example. All rights reserved
+            © {year} DBN HEAD HUNTERS LTD. All rights reserved
           </Text>
         </Stack>
       </Stack>
