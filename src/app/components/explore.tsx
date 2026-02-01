@@ -6,9 +6,6 @@ import {
   HStack,
   Heading,
   Text,
-  InputGroup,
-  Input,
-  InputRightAddon,
   Stack,
   Link as ChakraLink,
   IconButton,
@@ -41,7 +38,7 @@ const Feature = ({
       bg={"white"}
       align={"center"}
       justify={"center"}
-      spacing={5}
+      gap={5}
       borderRadius={45}
       borderWidth="1px"
       borderColor="#FDD3D3"
@@ -204,7 +201,7 @@ const Explore = () => {
       </Stack>
       <Box>
         {loading ? (
-          <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} spacing={10}>
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} gap={10}>
             <Skeleton
               w={{ base: "100%", sm: "45vw", md: "30vw", lg: 415 }}
               h={626}
@@ -219,7 +216,7 @@ const Explore = () => {
             />
           </SimpleGrid>
         ) : (
-          <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} spacing={10}>
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} gap={10}>
             {baseSubjects
               ?.slice(currentIndex, currentIndex + 3)
               .map((item: any) => (
@@ -247,13 +244,14 @@ const Explore = () => {
           h={{ base: 50, lg: 90 }}
           borderColor={"#FFCFCF"}
           borderWidth={1}
-          icon={<IoMdArrowBack size={30} />}
           onClick={handlePrevious}
-          isDisabled={currentIndex === 0}
+          disabled={currentIndex === 0}
           _hover={{
             bg: "primary",
           }}
-        />
+        >
+          <IoMdArrowBack size={30} />
+        </IconButton>
         <IconButton
           aria-label="toggle navigation"
           bg="#fff"
@@ -262,14 +260,15 @@ const Explore = () => {
           w={{ base: 50, lg: 90 }}
           h={{ base: 50, lg: 90 }}
           borderColor={"#FFCFCF"}
-          icon={<IoMdArrowForward size={30} />}
           borderWidth={1}
           onClick={handleNext}
-          isDisabled={currentIndex + 3 >= baseSubjects.length}
+          disabled={currentIndex + 3 >= baseSubjects.length}
           _hover={{
             bg: "primary",
           }}
-        />
+        >
+          <IoMdArrowForward size={30} />
+        </IconButton>
       </HStack>
     </VStack>
   );

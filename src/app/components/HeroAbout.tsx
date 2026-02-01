@@ -8,13 +8,12 @@ import {
   Text,
   InputGroup,
   Input,
-  InputRightAddon,
   Stack,
   Link as ChakraLink,
   IconButton,
+  Image
 } from "@chakra-ui/react";
 
-import { Image } from "@chakra-ui/next-js";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Button from "./ui/button";
 
@@ -54,30 +53,30 @@ const Hero = () => {
             lg: "row",
           }}
           position="relative"
-          spacing={{ base: 6, lg: 10 }}
+          gap={{ base: 6, lg: 10 }}
         >
           <Image
             src="images/arr-1.svg"
             alt="Hero Image"
             position="absolute"
-            width={20}
-            height={20}
+            width={"20"}
+            height={"20"}
             bottom={2}
             left="40%"
             display={{ base: "none", md: "block" }}
           />
-          <Image
+          {/* <Image
             src="images/Sparkle.svg"
             alt="Hero Image"
             position="absolute"
-            width={7}
-            height={7}
+            width={"7"}
+            height={"7"}
             top={2}
             left="20%"
             display={{ base: "none", md: "block" }}
-          />
+          /> */}
           <VStack
-            spacing={3}
+            gap={3}
             w={{ base: "100%", lg: "50%" }}
             alignItems={{ base: "center", lg: "flex-start" }}
           >
@@ -107,10 +106,10 @@ const Hero = () => {
           </VStack>
           <Stack w={{ base: "100%", lg: "50%" }}>
             <Image
-              src="images/hero-a.svg"
+              src="/images/hero-c-1.svg"
               alt="Hero Image"
-              width={100}
-              height={100}
+              width={"100"}
+              height={"100"}
               alignSelf="center"
               w={{
                 base: "100%",

@@ -8,14 +8,12 @@ import {
   Text,
   InputGroup,
   Input,
-  InputRightAddon,
   Stack,
   Link as ChakraLink,
   Image,
   Box,
   Icon,
   List,
-  ListIcon,
   ListItem,
   Skeleton,
 } from "@chakra-ui/react";
@@ -63,7 +61,7 @@ const Hero = ({ course, loading }: any) => {
               sm: "column",
               lg: "row",
             }}
-            spacing={{ base: 6, lg: 10 }}
+            gap={{ base: 6, lg: 10 }}
           >
             <Skeleton width={{ base: "100%", md: 394 }} />
             <Skeleton w={{ base: "100%", lg: "80%" }} />
@@ -77,7 +75,7 @@ const Hero = ({ course, loading }: any) => {
               sm: "column",
               lg: "row",
             }}
-            spacing={{ base: 6, lg: 10 }}
+            gap={{ base: 6, lg: 10 }}
           >
             <Box
               borderRadius="md"
@@ -100,13 +98,13 @@ const Hero = ({ course, loading }: any) => {
                 </Heading>
 
                 <HStack justify="space-between" w="100%">
-                  <HStack spacing={1}>
+                  <HStack gap={1}>
                     <Icon as={FiClock} />
                     <Text fontSize="base" color="#4D4C5C" fontWeight="semibold">
                       {course?.lesson_hours}
                     </Text>
                   </HStack>
-                  <HStack spacing={1}>
+                  <HStack gap={1}>
                     <Icon as={PiStudent} />
 
                     <Text fontSize="base" color="#4D4C5C" fontWeight="semibold">
@@ -134,8 +132,8 @@ const Hero = ({ course, loading }: any) => {
                 {course?.description}
               </Text>
               <HStack>
-                <List
-                  spacing={3}
+                <List.Root
+                  gap={3}
                   flexDir={{ base: "column", md: "row" }}
                   flexWrap="wrap"
                 >
@@ -145,7 +143,7 @@ const Hero = ({ course, loading }: any) => {
                       {topic?.description}
                     </ListItem>
                   ))}
-                </List>
+                </List.Root>
               </HStack>
             </Box>
           </HStack>

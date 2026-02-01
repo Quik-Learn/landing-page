@@ -156,7 +156,7 @@ export default function CaptionCarousel() {
         marginX="auto"
         padding={{ base: 10, lg: 20 }}
       >
-        <VStack spacing={2} textAlign="center" pt={2} pb={12}>
+        <VStack gap={2} textAlign="center" pt={2} pb={12}>
           <Heading
             fontSize={{
               base: 25,
@@ -211,7 +211,7 @@ export default function CaptionCarousel() {
                 maxHeight={"500px"}
               >
                 <Stack
-                  spacing={6}
+                  gap={6}
                   bg="white"
                   borderRadius={19}
                   padding={12}
@@ -262,7 +262,7 @@ export default function CaptionCarousel() {
                   <Rating rating={card.rating} />
                 </Stack>
                 <Stack
-                  spacing={2}
+                  gap={2}
                   marginTop={10}
                   justifyContent="center"
                   display="flex"
