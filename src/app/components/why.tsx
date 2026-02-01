@@ -9,17 +9,15 @@ import {
   Text,
   InputGroup,
   Input,
-  InputRightAddon,
   Stack,
+  Image,
   Link as ChakraLink,
   IconButton,
-  Divider,
   Box,
 } from "@chakra-ui/react";
 import HeroImage from "../../assets/images/hero.svg";
 import Flexible from "../../assets/images/flexible.svg";
 import Interactive from "../../assets/images/inter.svg";
-import { Image } from "@chakra-ui/next-js";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Button from "./ui/button";
 
@@ -42,7 +40,7 @@ const Why = () => {
           lg: "1440px",
         }}
       >
-        <VStack spacing={2} textAlign="center">
+        <VStack gap={2} textAlign="center">
           <Heading
             fontSize={{
               base: 25,
@@ -56,11 +54,10 @@ const Why = () => {
           >
             Why Choose Us
           </Heading>
-          <Divider
-            orientation="horizontal"
-            width="116px"
-            borderColor="#FFCE0F"
-            borderWidth={{ lg: "10px", base: "4px" }}
+          <Box
+            w="116px"
+            h={{ base: "4px", lg: "10px" }}
+            bg="#FFCE0F"
             borderRadius="full"
           />
           <Text
@@ -88,8 +85,8 @@ const Why = () => {
             <Image
               src={Flexible}
               alt="Hero Image"
-              width={100}
-              height={100}
+              width={"100"}
+              height={"100"}
               alignSelf="center"
               w={{
                 base: "100%",
@@ -147,7 +144,7 @@ const Why = () => {
           gap={10}
         >
           <VStack
-            spacing={3}
+            gap={3}
             w={{ base: "100%", lg: "50%" }}
             alignItems={{ base: "center", lg: "flex-start" }}
           >

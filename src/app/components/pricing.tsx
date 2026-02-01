@@ -7,12 +7,11 @@ import {
   Heading,
   Text,
   VStack,
-  useColorModeValue,
   List,
   ListItem,
-  ListIcon,
   Button,
   SimpleGrid,
+  Icon,
 } from "@chakra-ui/react";
 import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import { IoMdCheckmark } from "react-icons/io";
@@ -84,7 +83,7 @@ export default function Pricing() {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
-            <VStack spacing={2} textAlign="center" pt={5} pb={{ base: 10, lg: 20 }}>
+            <VStack gap={2} textAlign="center" pt={5} pb={{ base: 10, lg: 20 }}>
               <Heading
                 fontSize={{
                   base: 25,
@@ -107,7 +106,7 @@ export default function Pricing() {
         
         <SimpleGrid
           columns={{ base: 1, sm: 2, md: 2, lg: 3 }}
-          spacing={10}
+          gap={10}
           alignItems="center"
         >
           {pricingData.map((tier, index) => {
@@ -180,14 +179,14 @@ export default function Pricing() {
                     >
                       Available Features
                     </Text>
-                    <List spacing={3} textAlign="start" px={12}>
+                    <List.Root gap={3} textAlign="start" px={12}>
                       {tier.features.map((feature, idx) => (
                         <ListItem
                           key={idx}
                           fontFamily="heading"
                           fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
                         >
-                          <ListIcon
+                          <Icon
                             as={
                               feature.available
                                 ? IoMdCheckmark
@@ -200,7 +199,7 @@ export default function Pricing() {
                           {feature.feature}
                         </ListItem>
                       ))}
-                    </List>
+                    </List.Root>
                     <Box w="80%" pt={7}>
                       <Button
                         w="full"

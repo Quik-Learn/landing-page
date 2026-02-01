@@ -8,13 +8,14 @@ import {
   Text,
   InputGroup,
   Input,
-  InputRightAddon,
   Stack,
+  Image,
   Link as ChakraLink,
   IconButton,
 } from "@chakra-ui/react";
 import { FaArrowRightLong } from "react-icons/fa6";
-import { Image } from "@chakra-ui/next-js";
+// import { Image } from "@chakra-ui/next-js";
+
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Button from "./ui/button";
 
@@ -53,18 +54,18 @@ const Hero = () => {
             sm: "column-reverse",
             lg: "row",
           }}
-          spacing={{ base: 6, lg: 10 }}
+          gap={{ base: 6, lg: 10 }}
         >
           <VStack
-            spacing={3}
+            gap={3}
             w={{ base: "100%", lg: "50%" }}
             alignItems={{ base: "center", lg: "flex-start" }}
           >
             <Image
-              src="images/hero2.svg"
+              src="/images/hero2.svg"
               alt="Hero Image"
-              width={100}
-              height={100}
+              width={"100"}
+              height={"100"}
               alignSelf="center"
               w={{
                 base: "100%",

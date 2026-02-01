@@ -2,8 +2,7 @@
 
 import {
   Box,
-  FormControl,
-  FormLabel,
+  Field,
   Input,
   Text,
   SimpleGrid,
@@ -50,7 +49,7 @@ function ContactForm() {
         Get in Touch!
       </Heading>
       <Stack
-        spacing={2}
+        gap={2}
         width="full"
         paddingX={{ base: 5, md: 10, lg: 10 }}
         mt={{ base: 5, lg: 10 }}
@@ -60,29 +59,29 @@ function ContactForm() {
       >
         {/* Left Column (Smaller Width) */}
         <Box w={{ base: "100%", lg: "60%" }}>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing="4">
-            <FormControl>
-              <FormLabel>First Name</FormLabel>
+          <SimpleGrid columns={{ base: 1, md: 2 }} gap="4">
+            <Field.Root>
+              <Field.Label>First Name</Field.Label>
               <Input
                 placeholder="Enter First Name"
                 bg="#FCFCFD"
                 borderWidth={1}
                 borderColor="#F1F1F3"
               />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Last Name</FormLabel>
+            </Field.Root>
+            <Field.Root>
+              <Field.Label>Last Name</Field.Label>
               <Input
                 placeholder="Enter Last Name"
                 bg="#FCFCFD"
                 borderWidth={1}
                 borderColor="#F1F1F3"
               />
-            </FormControl>
+            </Field.Root>
           </SimpleGrid>
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing="4" mt="6">
-            <FormControl>
-              <FormLabel>Email</FormLabel>
+          <SimpleGrid columns={{ base: 1, md: 2 }} gap="4" mt="6">
+            <Field.Root>
+              <Field.Label>Email</Field.Label>
               <Input
                 type="email"
                 placeholder="Enter your Email"
@@ -90,28 +89,28 @@ function ContactForm() {
                 borderWidth={1}
                 borderColor="#F1F1F3"
               />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Phone</FormLabel>
+            </Field.Root>
+            <Field.Root>
+              <Field.Label>Phone</Field.Label>
               <Input
                 placeholder="Enter Phone Number"
                 bg="#FCFCFD"
                 borderWidth={1}
                 borderColor="#F1F1F3"
               />
-            </FormControl>
+            </Field.Root>
           </SimpleGrid>
-          <FormControl mt="6">
-            <FormLabel>Subject</FormLabel>
+          <Field.Root mt="6">
+            <Field.Label>Subject</Field.Label>
             <Input
               placeholder="Enter your Subject"
               bg="#FCFCFD"
               borderWidth={1}
               borderColor="#F1F1F3"
             />
-          </FormControl>
-          <FormControl my="6">
-            <FormLabel>Message</FormLabel>
+          </Field.Root>
+          <Field.Root my="6">
+            <Field.Label>Message</Field.Label>
             <Input
               as="textarea"
               placeholder="Enter your Message here..."
@@ -120,7 +119,7 @@ function ContactForm() {
               borderWidth={1}
               borderColor="#F1F1F3"
             />
-          </FormControl>
+          </Field.Root>
           <Stack align="center">
             <Button
               bg="#0065FF"
@@ -131,7 +130,7 @@ function ContactForm() {
           </Stack>
         </Box>
         <Box w={{ base: "100%", lg: "40%" }} mt={{ base: 10, md: 0 }}>
-          <Stack spacing="6" justify="center" align="center">
+          <Stack gap="6" justify="center" align="center">
             <VStack
               direction="column"
               align="center"
@@ -176,7 +175,7 @@ function ContactForm() {
             </Stack>
             <Stack
               direction="column"
-              spacing="4"
+              gap="4"
               justify="center"
               align="center"
               mt="4"

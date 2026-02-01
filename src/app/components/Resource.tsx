@@ -62,7 +62,7 @@ const Resource = () => {
 
   return (
     <Box p={5} padding={20}>
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} spacing={5}>
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 4 }} gap={5}>
         {paginatedData.map((item, index) => {
           const { colSpan, rowSpan } = getGridSpans(index);
           return (

@@ -8,13 +8,12 @@ import {
   Text,
   InputGroup,
   Input,
-  InputRightAddon,
   Stack,
+  Image,
   Link as ChakraLink,
   IconButton,
 } from "@chakra-ui/react";
 
-import { Image } from "@chakra-ui/next-js";
 import { CiMail } from "react-icons/ci";
 import Button from "./ui/button";
 
@@ -54,14 +53,14 @@ const Hero = () => {
             lg: "row",
           }}
           position="relative"
-          spacing={{ base: 6, lg: 10 }}
+          gap={{ base: 6, lg: 10 }}
         >
           {/* <Image
             src="images/arr-1.svg"
             alt="Hero Image"
             position="absolute"
-            width={20}
-            height={20}
+            width={"20"}
+            height={"20"}
             bottom={2}
             left="40%"
             display={{ base: "none", md: "block" }}
@@ -70,14 +69,14 @@ const Hero = () => {
             src="images/Sparkle.svg"
             alt="Hero Image"
             position="absolute"
-            width={7}
-            height={7}
+            width={"7"}
+            height={"7"}
             top={2}
             left="20%"
             display={{ base: "none", md: "block" }}
           />
           <VStack
-            spacing={3}
+            gap={3}
             w={{ base: "100%", lg: "50%" }}
             alignItems={{ base: "center", lg: "flex-start" }}
           >

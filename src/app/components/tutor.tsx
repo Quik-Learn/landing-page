@@ -17,7 +17,7 @@ import {
   Link as ChakraLink,
   HStack,
   IconButton,
-  Divider,
+  NativeSelect,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
@@ -203,26 +203,29 @@ const Tutor = () => {
           Tutor
         </Text>
       </Heading>
-      <Divider
-        orientation="horizontal"
+      <Box
         width="100%"
         borderColor="#DCDCE5"
         borderWidth={{ lg: "1px", base: "1px" }}
         mb={3}
         borderRadius="full"
       />
-      <SimpleGrid width="full" columns={{ base: 1, md: 4 }} spacing={4}>
+      <SimpleGrid width="full" columns={{ base: 1, md: 4 }} gap={4}>
         <Input placeholder="I want to learn..." />
-        <Select placeholder="I'm available">
-          <option value="anytime">Anytime</option>
-        </Select>
-        <Select placeholder="Sort by: Our top pick">
-          <option value="top-pick">Our top pick</option>
-        </Select>
+        <NativeSelect.Root>
+          <NativeSelect.Field placeholder="I'm available">
+            <option value="anytime">Anytime</option>
+          </NativeSelect.Field>
+        </NativeSelect.Root>
+        <NativeSelect.Root>
+          <NativeSelect.Field placeholder="Sort by: Our top pick">
+            <option value="top-pick">Our top pick</option>
+          </NativeSelect.Field>
+        </NativeSelect.Root>
         <Input placeholder="Search by name or keyword" />
       </SimpleGrid>
 
-      <SimpleGrid columns={1} spacing={4} alignSelf="flex-start" mt={10}>
+      <SimpleGrid columns={1} gap={4} alignSelf="flex-start" mt={10}>
         {tutors.map((tutor, index) => (
           <TutorCard key={index} />
         ))}
@@ -233,31 +236,30 @@ const Tutor = () => {
         width="full"
         flexDirection={{ base: "column", lg: "row" }}
       >
-        <HStack spacing={2}>
-          <ChakraButton
-            leftIcon={<Text as="span">&larr;</Text>}
-            colorScheme="gray"
-            variant="outline"
-          >
+        <HStack gap={2}>
+          <ChakraButton colorPalette="gray" variant="outline">
+            <Text as="span" mr={2} aria-hidden>
+              &larr;
+            </Text>
             Prev
           </ChakraButton>
 
-          <ChakraButton
-            rightIcon={<Text as="span">&rarr;</Text>}
-            colorScheme="gray"
-            variant="outline"
-          >
+          <ChakraButton colorPalette="gray" variant="outline">
             Next
+            <Text as="span" ml={2} aria-hidden>
+              &rarr;
+            </Text>
           </ChakraButton>
         </HStack>
-        <HStack spacing={2}>
+        <HStack gap={2}>
           <IconButton
             aria-label="Previous page"
-            icon={<MdKeyboardDoubleArrowLeft />}
             colorScheme="gray"
             variant="ghost"
-            isDisabled
-          />
+            disabled
+          >
+            <MdKeyboardDoubleArrowLeft />
+          </IconButton>
           {Array.from({ length: 3 }).map((_, index) => (
             <ChakraButton
               key={index}
@@ -267,12 +269,9 @@ const Tutor = () => {
               {index + 1}
             </ChakraButton>
           ))}
-          <IconButton
-            aria-label="Next page"
-            icon={<MdKeyboardDoubleArrowRight />}
-            colorScheme="blue"
-            variant="ghost"
-          />
+          <IconButton aria-label="Next page" colorScheme="blue" variant="ghost">
+            <MdKeyboardDoubleArrowRight />
+          </IconButton>
         </HStack>
       </HStack>
     </VStack>

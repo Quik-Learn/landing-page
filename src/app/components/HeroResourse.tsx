@@ -8,13 +8,12 @@ import {
   Text,
   InputGroup,
   Input,
-  InputRightAddon,
   Stack,
   Link as ChakraLink,
+  Image,
   IconButton,
 } from "@chakra-ui/react";
 
-import { Image } from "@chakra-ui/next-js";
 import { CiMail } from "react-icons/ci";
 import Button from "./ui/button";
 const buttons = [
@@ -64,7 +63,7 @@ const Hero = () => {
           display={{ base: "none", md: "block" }}
         />
         <VStack
-          spacing={3}
+          gap={3}
           w={{ base: "100%", lg: "50%" }}
           alignItems={{ base: "center", lg: "center" }}
         >
