@@ -4,12 +4,14 @@ import {
   VStack,
   Image,
   Link as ChakraLink,
-  Drawer as ChakraDrawer,
+  DrawerRoot,
+  DrawerBackdrop,
+  DrawerPositioner,
+  DrawerContent,
   DrawerBody,
   DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
+  DrawerCloseTrigger,
+  CloseButton,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -44,61 +46,66 @@ const Drawer = ({ isOpen, onClose }: DrawerProps) => {
     },
   ];
   return (
-    <ChakraDrawer
-      isOpen={isOpen}
-      placement="right"
-      onClose={onClose}
+    <DrawerRoot
+      open={isOpen}
+      placement="end"
+      // onClose={onClose}
       size="full"
     >
-      <DrawerOverlay />
-      <DrawerContent bg="white">
-        <DrawerCloseButton
-          onClick={onClose}
-          position="fixed"
-          top={4}
-          right={4}
-          size="lg"
-          color="brand.100"
-        />
-        <DrawerHeader>
-          <Link href="/" onClick={onClose}>
-            <ChakraLink width={{ base: "60px" }} height={{ base: "60px" }}>
-              <Image src="/images/quik.png" alt="Logo" height="50px" />
-            </ChakraLink>
-          </Link>
-        </DrawerHeader>
-
-        <DrawerBody>
-          <VStack spacing={4} align="stretch">
-            {navLinks.map((link) => (
-              <Link href={link.url} key={link.url}>
-                <ChakraLink
-                  onClick={onClose}
-                  color="brand.300"
-                  fontWeight="500"
-                  fontSize="17px"
-                  _hover={{
-                    color: "brand.100",
-                  }}
-                >
-                  {link.title}
-                </ChakraLink>
-              </Link>
-            ))}
-          </VStack>
-        </DrawerBody>
-
-        <VStack align="flex-start" mb={20} px={6}>
-          <Button
-            text="Sign in"
-            variant="ghost"
-            color="brand.300"
-            onClick={() => router.push("/login")}
+      <DrawerBackdrop />
+      <DrawerPositioner>
+        <DrawerContent bg="white">
+          <DrawerCloseTrigger asChild>
+          <CloseButton
+            onClick={onClose}
+            position="fixed"
+            top={4}
+            right={4}
+            size="lg"
+            color="brand.100"
           />
-          <Button text="SIGN UP" onClick={() => router.push("/signup")} />
-        </VStack>
-      </DrawerContent>
-    </ChakraDrawer>
+
+          </DrawerCloseTrigger>
+          <DrawerHeader>
+            <Link href="/" onClick={onClose}>
+              <ChakraLink width={{ base: "60px" }} height={{ base: "60px" }}>
+                <Image src="/images/quik.png" alt="Logo" height="50px" />
+              </ChakraLink>
+            </Link>
+          </DrawerHeader>
+
+          <DrawerBody>
+            <VStack gap={4} align="stretch">
+              {navLinks.map((link) => (
+                <Link href={link.url} key={link.url}>
+                  <ChakraLink
+                    onClick={onClose}
+                    color="brand.300"
+                    fontWeight="500"
+                    fontSize="17px"
+                    _hover={{
+                      color: "brand.100",
+                    }}
+                  >
+                    {link.title}
+                  </ChakraLink>
+                </Link>
+              ))}
+            </VStack>
+          </DrawerBody>
+
+          <VStack align="flex-start" mb={20} px={6}>
+            <Button
+              text="Sign in"
+              variant="ghost"
+              color="brand.300"
+              onClick={() => router.push("/login")}
+            />
+            <Button text="SIGN UP" onClick={() => router.push("/signup")} />
+          </VStack>
+        </DrawerContent>
+      </DrawerPositioner>
+    </DrawerRoot>
   );
 };
 

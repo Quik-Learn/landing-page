@@ -6,15 +6,14 @@ import {
   HStack,
   Heading,
   Text,
+  Image,
   InputGroup,
   Input,
-  InputRightAddon,
   Stack,
   Link as ChakraLink,
   IconButton,
 } from "@chakra-ui/react";
 
-import { Image } from "@chakra-ui/next-js";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Button from "./ui/button";
 import { service } from "../utils/data";
@@ -51,19 +50,19 @@ const HeroCoursesAll = ({ category }: any) => {
             sm: "column-reverse",
             lg: "row",
           }}
-          spacing={{ base: 6, lg: 10 }}
+          gap={{ base: 6, lg: 10 }}
           bg={category?.length ? course?.bg : "transparent"}
         >
           <VStack
-            spacing={3}
+            gap={3}
             w={{ base: "100%", lg: "50%" }}
             alignItems={{ base: "center", lg: "flex-start" }}
           >
             <Image
               src="images/hero-c-1.svg"
               alt="Hero Image"
-              width={100}
-              height={100}
+              width={"100"}
+              height={"100"}
               ml={{ base: 0, lg: -19.9 }}
               alignSelf="center"
               w={{

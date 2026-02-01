@@ -1,5 +1,5 @@
 import { ButtonType } from "@/app/types";
-import { Button as ChakraButton } from "@chakra-ui/react";
+import { Button as ChakraButton, Box } from "@chakra-ui/react";
 
 const Button = (props: ButtonType) => {
   const {
@@ -31,15 +31,13 @@ const Button = (props: ButtonType) => {
     <ChakraButton
       size={size}
       variant={variant}
-      isDisabled={isDisabled}
-      isLoading={isLoading}
+      disabled={isDisabled}
+      loading={isLoading}
       onClick={onClick}
       color={text}
       alignSelf={alignSelf}
       bg={bg}
       bgGradient={bgGradient}
-      leftIcon={icon && iconPosition === "left" && icon}
-      rightIcon={icon && iconPosition === "right" && icon}
       borderWidth={variant === "outline" ? "1px" : "0px"}
       borderColor={border}
       borderRadius={borderRadius}
@@ -55,7 +53,19 @@ const Button = (props: ButtonType) => {
       px={px}
       py={py}
     >
+      {icon && iconPosition === "left" ? (
+        <Box as="span" display="inline-flex" alignItems="center" mr={2}>
+          {icon}
+        </Box>
+      ) : null}
+
       {textProp}
+
+      {icon && iconPosition === "right" ? (
+        <Box as="span" display="inline-flex" alignItems="center" ml={2}>
+          {icon}
+        </Box>
+      ) : null}
     </ChakraButton>
   );
 };

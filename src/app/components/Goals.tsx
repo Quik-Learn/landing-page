@@ -17,7 +17,6 @@ import {
   Link as ChakraLink,
   HStack,
   IconButton,
-  Divider,
 } from "@chakra-ui/react";
 import Button from "./ui/button";
 const goal = [
@@ -52,13 +51,12 @@ const Goal = ({ item }: any) => {
           w={7}
           h={7}
           color="#FF9500"
-          icon={
-            <Image borderRadius={10} src={item.img} alt="Tutor" h={19} w={28} />
-          }
           _hover={{
             bg: "primary",
           }}
-        />
+        >
+          <Image borderRadius={10} src={item.img} alt="Tutor" h={19} w={28} />
+        </IconButton>
 
         <Heading
           fontSize={{ base: "28px", lg: "36px" }}
@@ -122,7 +120,7 @@ const Goals = () => {
 
       <SimpleGrid
         columns={{ base: 1, md: 1 }}
-        spacing={6}
+        gap={6}
         alignSelf="flex-start"
         mt={10}
       >
@@ -141,19 +139,12 @@ const Goals = () => {
               w={7}
               h={7}
               color="#FF9500"
-              icon={
-                <Image
-                  borderRadius={10}
-                  src={goal[0]?.img}
-                  alt="Tutor"
-                  h={19}
-                  w={28}
-                />
-              }
               _hover={{
                 bg: "primary",
               }}
-            />
+            >
+              <Image borderRadius={10} src={goal[0]?.img} alt="Tutor" h={19} w={28} />
+            </IconButton>
 
             <Heading
               fontSize={{ base: "28px", lg: "36px" }}
@@ -189,19 +180,12 @@ const Goals = () => {
               w={7}
               h={7}
               color="#FF9500"
-              icon={
-                <Image
-                  borderRadius={10}
-                  src={goal[1]?.img}
-                  alt="Tutor"
-                  h={19}
-                  w={28}
-                />
-              }
               _hover={{
                 bg: "primary",
               }}
-            />
+            >
+              <Image borderRadius={10} src={goal[1]?.img} alt="Tutor" h={19} w={28} />
+            </IconButton>
 
             <Heading
               fontSize={{ base: "28px", lg: "36px" }}

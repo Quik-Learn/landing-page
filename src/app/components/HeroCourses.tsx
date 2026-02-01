@@ -8,7 +8,6 @@ import {
   Text,
   InputGroup,
   Input,
-  InputRightAddon,
   Stack,
   Link as ChakraLink,
   IconButton,
@@ -47,7 +46,7 @@ const HeroCourses = ({ title, description, image, loading }: any) => {
               sm: "column-reverse",
               lg: "row",
             }}
-            spacing={{ base: 6, lg: 10 }}
+            gap={{ base: 6, lg: 10 }}
           >
             <Skeleton w={{ base: "100%", lg: "50%" }} h="100%" />
             <Skeleton w={{ base: "100%", lg: "50%" }} h="100%" />
@@ -63,11 +62,11 @@ const HeroCourses = ({ title, description, image, loading }: any) => {
               sm: "column-reverse",
               lg: "row",
             }}
-            spacing={{ base: 4, lg: 10 }}
+            gap={{ base: 4, lg: 10 }}
             bg={title?.length ? course?.bg : "transparent"}
           >
             <VStack
-              spacing={3}
+              gap={3}
               w={{ base: "100%", lg: "50%" }}
               alignItems={{ base: "center", lg: "flex-start" }}
             >

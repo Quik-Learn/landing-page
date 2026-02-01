@@ -31,14 +31,12 @@ const SocialButton = ({
   href: string;
 }) => {
   return (
-    <chakra.button
+    <chakra.a
       bg="white"
-      //   rounded={"full"}
       borderRadius={6}
       w={8}
       h={8}
       cursor={"pointer"}
-      as={"a"}
       href={href}
       display={"inline-flex"}
       alignItems={"center"}
@@ -50,7 +48,7 @@ const SocialButton = ({
     >
       <VisuallyHidden>{label}</VisuallyHidden>
       {children}
-    </chakra.button>
+    </chakra.a>
   );
 };
 
@@ -117,35 +115,35 @@ const footerData = [
 export default function Footerr() {
   const year = new Date().getFullYear();
   return (
-    <Box bg="black" color="white">
+    <Box bg="black" color="#fff">
       <Stack
         maxW={"1440px"}
         py={2}
+
         marginX={"auto"}
         padding={{ base: 5, md: 10, lg: 10 }}
       >
         <SimpleGrid
           templateColumns={{ sm: "1fr 1fr", md: "2fr 1fr 1fr 1fr" }}
-          spacing={8}
+          gap={8}
           justifyContent="space-between"
         >
-          <Stack spacing={{ base: 3, lg: 4 }}>
+          <Stack gap={{ base: 3, lg: 4 }}>
             <Box mt={6} ml={{ base: 0, md: 20 }}>
-              <Link href="/">
-                <ChakraLink display={"block"} w={100} h={100}>
+              <ChakraLink asChild display={"block"} w={100} h={100}>
+                <Link href="/">
                   <Image
                     src="/images/quik.png"
                     alt="Logo"
                     width={"100%"}
                     height={"100%"}
                   />
-                </ChakraLink>
-              </Link>
+                </Link>
+              </ChakraLink>
             </Box>
             {footerData[3].links?.map((item: any, index) => (
-              <HStack
+              <ChakraLink
                 key={index}
-                as="a"
                 href={item.href}
                 target={
                   item.href.includes("maps.google.com") ? "_blank" : undefined
@@ -155,15 +153,16 @@ export default function Footerr() {
                     ? "noopener noreferrer"
                     : undefined
                 }
+                _hover={{ textDecoration: "none" }}
               >
-                <IconButton
-                  aria-label={item.label}
-                  icon={item.icon}
-                  bg="transparent"
-                />
-                <Text> {item.label}</Text>
-                {item.name && <Text>- {item.name}</Text>}
-              </HStack>
+                <HStack>
+                  <IconButton aria-label={item.label} bg="transparent">
+                    {item.icon}
+                  </IconButton>
+                  <Text> {item.label}</Text>
+                  {item.name && <Text>- {item.name}</Text>}
+                </HStack>
+              </ChakraLink>
             ))}
           </Stack>
 
@@ -172,24 +171,20 @@ export default function Footerr() {
               key={index}
               align={"flex-start"}
               pt={{ lg: 6 }}
-              spacing={{ base: 3, lg: 4 }}
+              gap={{ base: 3, lg: 4 }}
             >
               <ListHeader>{section.header}</ListHeader>
               {section.links?.map((link, linkIndex) => (
-                <Box key={linkIndex} as="a" href={link.href}>
+                <ChakraLink key={linkIndex} href={link.href}>
                   {link.label}
-                </Box>
+                </ChakraLink>
               ))}
             </Stack>
           ))}
 
-          <Stack
-            align={"flex-start"}
-            pt={{ lg: 4 }}
-            spacing={{ base: 3, lg: 4 }}
-          >
+          <Stack align={"flex-start"} pt={{ lg: 4 }} gap={{ base: 3, lg: 4 }}>
             <ListHeader>{footerData[2].header}</ListHeader>
-            <Stack direction={"row"} spacing={6}>
+            <Stack direction={"row"} gap={6}>
               {footerData[2].socialLinks?.map((socialLink, socialIndex) => (
                 <SocialButton
                   key={socialIndex}

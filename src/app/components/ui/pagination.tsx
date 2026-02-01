@@ -36,26 +36,27 @@ const Pagination = ({
   // }, []);
 
   return (
-    <HStack spacing={2} justifyContent={'flex-end'} p={10} w="100%">
+    <HStack gap={2} justifyContent={"flex-end"} p={10} w="100%">
       {/* Previous Button */}
       <IconButton
         aria-label="Previous page"
-        icon={<MdKeyboardDoubleArrowLeft />}
         colorScheme="gray"
         variant="ghost"
         onClick={handlePreviousPage}
-        isDisabled={!previous || isLoading}
-      />
+        disabled={!previous || isLoading}
+      >
+        <MdKeyboardDoubleArrowLeft />
+      </IconButton>
 
       {/* Page Numbers */}
       {Array.from({ length: totalPages }).map((_, index) => (
         <ChakraButton
           key={index}
-          color={'white'}
-          bg={index + 1 === currentPage ? '#02659C' : 'gray'}
-          variant={index + 1 === currentPage ? 'solid' : 'outline'}
+          color={"white"}
+          bg={index + 1 === currentPage ? "#02659C" : "gray"}
+          variant={index + 1 === currentPage ? "solid" : "outline"}
           onClick={() => handlePageClick(index + 1)}
-          isDisabled={isLoading}
+          disabled={isLoading}
         >
           {index + 1}
         </ChakraButton>
@@ -64,12 +65,13 @@ const Pagination = ({
       {/* Next Button */}
       <IconButton
         aria-label="Next page"
-        icon={<MdKeyboardDoubleArrowRight />}
         colorScheme="blue"
         variant="ghost"
         onClick={handleNextPage}
-        isDisabled={!next || isLoading}
-      />
+        disabled={!next || isLoading}
+      >
+        <MdKeyboardDoubleArrowRight />
+      </IconButton>
     </HStack>
   );
 };

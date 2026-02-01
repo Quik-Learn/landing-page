@@ -2,11 +2,7 @@
 
 import {
   Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
   Flex,
-  useColorModeValue,
   Text,
   Container,
   Box,
@@ -81,7 +77,13 @@ export default function Faq() {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <Box maxWidth={{ xl: "1440px" }} marginX="auto" bg="#0A52A8" rounded="3xl"  id="faq">
+      <Box
+        maxWidth={{ xl: "1440px" }}
+        marginX="auto"
+        bg="#0A52A8"
+        rounded="3xl"
+        id="faq"
+      >
         <Box
           position="relative"
           backgroundPosition="start"
@@ -122,98 +124,88 @@ export default function Faq() {
                 support@quiklearn.com
               </Text>
 
-          <Image
-            display={{ base: "none", md: "block" }}
-            src="/images/faq-girl.svg"
-            position="absolute"
-            height={{ base: "100%", md: "65%" }}
-            left={{ base: 0, md: 0, lg: 0 }}
-            bottom={{ base: 0, md: 0, lg: 0 }}
-            alt="girl"
-          />
-        </VStack>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-        >
-          <VStack justifyContent="center">
-            <Flex
-              bg="white"
-              borderRadius={32}
-              padding={{ base: 3, lg: 8 }}
-              width={{ base: "100%", lg: 672 }}
-              mt={{ base: 0, lg: 0 }}
-              mb={{ base: 5, md: 10 }}
-              height="fit-content"
-            >
-            <Container>
-              <Accordion
-                allowMultiple
-                width="100%"
-                rounded="lg"
-                fontFamily="heading"
+              <Image
+                display={{ base: "none", md: "block" }}
+                src="/images/faq-girl.svg"
+                position="absolute"
+                height={{ base: "100%", md: "65%" }}
+                left={{ base: 0, md: 0, lg: 0 }}
+                bottom={{ base: 0, md: 0, lg: 0 }}
+                alt="girl"
+              />
+            </VStack>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          >
+            <VStack justifyContent="center">
+              <Flex
+                bg="white"
+                borderRadius={32}
+                padding={{ base: 3, lg: 8 }}
+                width={{ base: "100%", lg: 672 }}
+                mt={{ base: 0, lg: 0 }}
+                mb={{ base: 5, md: 10 }}
+                height="fit-content"
               >
-                {accordionData.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                <Container>
+                  <Accordion.Root
+                    multiple
+                    width="100%"
+                    rounded="lg"
+                    fontFamily="heading"
                   >
-                    <AccordionItem
-                      borderWidth={0.69}
-                      borderColor={"#F1F1F3"}
-                      _expanded={{
-                        borderWidth: "0px",
-                        border: "none",
-                      }}
-                    >
-                      {({ isExpanded }) => (
-                        <>
-                          <h2>
-                            <AccordionButton
-                              borderBottom={isExpanded ? 1 : 0}
-                              padding={{ base: 1, sm: 3, md: 5, lg: 5 }}
+                    {accordionData.map((item, index) => (
+                      <Accordion.Item
+                        key={index}
+                        value={`faq-${index}`}
+                        borderWidth="0.69px"
+                        borderColor="#F1F1F3"
+                        css={{
+                          "& .icon-open": { display: "none" },
+                          "&[data-state=open] .icon-open": { display: "block" },
+                          "&[data-state=open] .icon-closed": {
+                            display: "none",
+                          },
+                        }}
+                      >
+                        <Accordion.ItemTrigger
+                          padding={{ base: 1, sm: 3, md: 5, lg: 5 }}
+                          display="flex"
+                          alignItems="center"
+                          width="100%"
+                        >
+                          <Box flex="1" textAlign="left">
+                            <Text
+                              fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
+                              fontWeight={500}
+                              color="#262626"
                             >
-                              <Box as="span" flex="1" textAlign="left">
-                                <Text
-                                  fontSize={{ base: 10, sm: 12, md: 14, lg: 18 }}
-                                  fontWeight={500}
-                                  color="#262626"
-                                >
-                                  {item.title}
-                                </Text>
-                              </Box>
-                              {isExpanded ? (
-                                <IconButton
-                                  aria-label="toggle navigation"
-                                  bg="#D7E9FF"
-                                  color="#262626"
-                                  icon={<VscClose color="#262626" />}
-                                  _hover={{
-                                    bg: "primary",
-                                  }}
-                                  fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
-                                />
-                              ) : (
-                                <IconButton
-                                  aria-label="toggle navigation"
-                                  bg="#D7E9FF"
-                                  color="#262626"
-                                  icon={<GoPlus color="#262626" />}
-                                  _hover={{
-                                    bg: "primary",
-                                  }}
-                                  fontSize={{ base: 12, sm: 12, md: 14, lg: 18 }}
-                                />
-                              )}
-                            </AccordionButton>
-                          </h2>
-                          <AccordionPanel pb={4}>
+                              {item.title}
+                            </Text>
+                          </Box>
+
+                          <Box
+                            bg="#D7E9FF"
+                            color="#262626"
+                            borderRadius="md"
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="center"
+                            w={{ base: 7, lg: 9 }}
+                            h={{ base: 7, lg: 9 }}
+                            flexShrink={0}
+                          >
+                            <VscClose className="icon-open" />
+                            <GoPlus className="icon-closed" />
+                          </Box>
+                        </Accordion.ItemTrigger>
+
+                        <Accordion.ItemContent>
+                          <Accordion.ItemBody pb={4}>
                             {typeof item.content === "string" ? (
                               <Text
                                 color="#4C4C4D"
@@ -224,19 +216,17 @@ export default function Faq() {
                             ) : (
                               item.content
                             )}
-                          </AccordionPanel>
-                        </>
-                      )}
-                    </AccordionItem>
-                  </motion.div>
-                ))}
-              </Accordion>
-            </Container>
-          </Flex>
-        </VStack>
-        </motion.div>
+                          </Accordion.ItemBody>
+                        </Accordion.ItemContent>
+                      </Accordion.Item>
+                    ))}
+                  </Accordion.Root>
+                </Container>
+              </Flex>
+            </VStack>
+          </motion.div>
+        </Box>
       </Box>
-    </Box>
     </motion.div>
   );
 }

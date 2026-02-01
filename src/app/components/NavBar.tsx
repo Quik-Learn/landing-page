@@ -8,6 +8,7 @@ import {
   IconButton,
   Image,
   Stack,
+  Box,
 } from "@chakra-ui/react";
 
 import Link from "next/link";
@@ -66,14 +67,14 @@ const NavBar = () => {
       >
         <HStack justify="space-between" width={"full"} alignItems={"center"}>
           <Link href="/">
-            <ChakraLink w="80px" h="80px" display={"block"}>
+            <Box w="80px" h="80px" display={"block"}>
               <Image
                 src="/images/quik.png"
                 alt="Logo"
                 width={"100%"}
                 height={"100%"}
               />
-            </ChakraLink>
+            </Box>
           </Link>
 
           <HStack
@@ -86,13 +87,13 @@ const NavBar = () => {
             justify="space-between"
             bg="white"
             borderRadius={15}
-            spacing={10}
+            gap={10}
             paddingY={2}
             paddingX={4}
             boxShadow="5px 5px 18px rgba(0, 0, 0, 0.03)"
           >
             <HStack
-              spacing={10}
+              gap={10}
               display={{
                 base: "none",
                 md: "none",
@@ -101,20 +102,18 @@ const NavBar = () => {
               alignSelf="center"
             >
               {navLinks.map((link) => (
-                <Link href={link.url} key={link.title}>
-                  <ChakraLink
-                    color={pathname === link.url ? "#0065FF" : "black"}
-                    fontWeight="400"
-                    fontSize="16px"
-                    textTransform="capitalize"
-                    fontFamily="heading"
-                    _hover={{
-                      color: "#D7E9FF",
-                    }}
-                  >
-                    {link.title}
-                  </ChakraLink>
-                </Link>
+                <ChakraLink
+                  key={link.title}
+                  asChild
+                  color={pathname === link.url ? "#0065FF" : "black"}
+                  fontWeight="400"
+                  fontSize="16px"
+                  textTransform="capitalize"
+                  fontFamily="heading"
+                  _hover={{ color: "#D7E9FF" }}
+                >
+                  <Link href={link.url}>{link.title}</Link>
+                </ChakraLink>
               ))}
             </HStack>
             <Button
@@ -135,7 +134,7 @@ const NavBar = () => {
               onClick={() =>
                 window.open(
                   "https://home.quiklearn.co.uk/auth/sign-up",
-                  "_blank"
+                  "_blank",
                 )
               }
               width="122px"
@@ -157,12 +156,13 @@ const NavBar = () => {
               aria-label="toggle navigation"
               bg="primary"
               color="#FBA333"
-              icon={<IoMenu size={30} />}
               _hover={{
                 bg: "primary",
               }}
               onClick={handleToggle}
-            />
+            >
+              <IoMenu size={30} />
+            </IconButton>
           </HStack>
         </HStack>
       </VStack>
